@@ -1,0 +1,31 @@
+﻿<html>
+
+<head>
+  <title>SetConfigNext</a></title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>SetConfigNext</h1>
+  <p>PCTalker設定を次の値へ</p>
+  <pre><code>
+DWORD <span class="fnname">SetConfigNext</span>(
+  DWORD aItemType,
+  BOOL aGuide
+)
+</code></pre>
+  <p>PCTalkerの設定値を次の値に設定します。(トグル)</p>
+  <h2>引 数</h2>
+  <code>aItemType</code>
+  <p>設定種別。<a href="../../../PCTKUSR/PS_STATUSParam.html">PS_STATUSのparam1を参照。</a></p>
+  <code>aGuide</code>
+  <p>音声ガイドを行うかどうか</p>
+  <p>0=音声ガイドを行わない<br />
+    0以外=音声ガイドする</p>
+  <h2>戻り値</h2>
+  <code>DWORD</code>
+  <p>前回設定されていた設定値。</p>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>PinWrite</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FFFF00}
+.style2 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">文字列をピンディスプレイ出力　PinWrite</p>
+<p><strong>BOOL PinWriteA( </strong><STRONG>const char* </STRONG><EM>aString</EM><STRONG>, </STRONG><STRONG>unsinged int </STRONG><EM>aInfoFlags</EM><STRONG>, int </STRONG><EM>aSubInfo</EM><STRONG></STRONG><STRONG> </STRONG><strong>);</strong><br>
+  <strong>BOOL PinWriteW( </strong><STRONG>const wchar_t* </STRONG><EM>aString</EM><STRONG>, </STRONG><strong> unsinged int </strong><EM>aInfoFlags</EM><STRONG>, int </STRONG><EM>aSubInfo </EM><STRONG></STRONG><strong>);</strong><br>
+エディット型以外のコントロールの文字列をピンディスプレイに表示します。<br>
+<span class="style1">※この関数をコールする前に、<a href="PinFocus.html"><strong>PinFocus</strong></a>でコントロールを登録しておく必要があります。</span></p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><EM>aString</EM><STRONG></STRONG><strong></strong></td>
+    <td width="536" valign="top">表示する文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><EM>aInfoFlags</EM><STRONG></STRONG><STRONG></STRONG></td>
+    <td valign="top"><p><a href="../../../PCTKUSR/DEFINE.html#PPW_TYPES">表示詳細区分</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><EM>aSubInfo</EM></td>
+    <td valign="top">追加情報</td>
+  </tr>
+</table>
+<p class="subtitle">戻り値</p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">BOOL</td>
+    <td width="533"><table>
+        <tr>
+          <td width="304"><strong>TRUE</strong>=成功</td>
+        <tr>
+          <td><strong>FALSE</strong>=失敗</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<br>
+</body>
+</html>

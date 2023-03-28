@@ -1,0 +1,93 @@
+﻿<html>
+
+<head>
+  <title>PC-Talker設定値(ダイアログの値)の設定と取得</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1>PC-Talker設定値(ダイアログの値)の設定と取得</h1>
+
+    <p>参照:<a href="PS_STATUSParam.html">PS_STATUSのパラメータ表</a></p>
+
+    <hr>
+
+    <h2>PC-Talkerの設定値を設定する</h2>
+    <p>PC-Talker項目値(ダイアログ中の値)の設定をアプリケーションから行うには、PCTKUSR.DLLの<span class="fnname">PCTKSetStatus</span>関数をコールします。</p>
+    <pre><code>
+DWORD <span class="fnname">PCTKSetStatus</span>( 
+  UINT item,
+  LPVOID param1,
+  LPVOID param2
+);
+</code></pre>
+    <h2>引数</h2>
+    <p><code>item</code></p>
+    <p><b>PS_STATUS</b>を設定します。
+    <p><code>param1</code></p>
+    <p>設定する項目を指定します。<a href="PS_STATUSParam.html">PS_STATUSのパラメータ表</a></p>
+    <p><code>param2</code></p>
+    <p>設定する値と音声ガイドする・しないを指定します。<br>
+      32bit値を指定しますが、LOWORDに設定値、HIWORDに音声ガイドする・しないを<b>MAKELONG</b>マクロ等で指定します。</p>
+    <p>HIWORDの音声ガイドが<strong>１</strong>であれば、関数コール時に音声ガイドを行い、<strong>０</strong>であれば音声ガイドを行いません。</p>
+    <h2>戻り値</h2>
+    以前に設定されていた値が戻ります。</p>
+    <br>
+    <b>【例】音声スピードを５に設定し、音声ガイドも行う</b>
+    <p class="note">注:param1とparam2は,LPVOID型なのでキャストする必要があります。<br>
+      注:設定した値は、PC-Talkerが音声化する全てのアプリケーションに影響を与えます。</p>
+    <pre><code>
+PCTKSetStatus( PS_STATUS, (LPVOID)PKDI_MSPEED, (LPVOID)MAKELONG(5,1));
+    </code></pre>
+    <hr><br />
+    <h2>PC-Talker設定値を取得する</h2>
+    <p>PC-Talker項目値(ダイアログ中の値)の取得をアプリケーションから行うには、PCTKUSR.DLLの<span class="fnname">PCTKGetStatus</span>関数をコールします。</p>
+    <pre><code>
+DWORD <span class="fnname">PCTKGetStatus</span>(
+      UINT item,
+      LPVOID param1,LPVOID param2
+);</code></pre>
+    <h2>引数</h2>
+    <p><code>item</code></p>
+    <p>PCTKSetStatusと同じく<b>PS_STATUS</b>を設定します。
+    <p><code>param1</code></p>
+    <p>取得する項目を指定します。<a href="PS_STATUSParam.html">PS_STATUSのパラメータ表</a></p>
+    <p><code>param2</code></p>
+    <p>使用しません。nullptrを指定してください。</p>
+    <h2>戻り値</h2>
+    設定されている値が戻ります。</p>
+    <b>【例】音声スピードを取得する</b>
+    <pre><code>
+DWORD speed = PCTKGetStatus( PS_STATUS, (LPVOID)PKDI_MSPEED, (LPVOID)nullptr);
+</code></pre>
+    <hr><br />
+    <h2>PC-Talker設定値のトグル</h2>
+    <p>PC-Talker項目値(ダイアログ中の値)の設定を、現在の設定の次、または前などとトグルさせるには、PCTKUSR.DLLの<span
+        class="fnname">PCTKSetStatus</span>関数をコールします。</p>
+    <pre><code>
+DWORD <span class="fnname">PCTKSetStatus</span>(
+    UINT item,
+    LPVOID param1,
+    LPVOID param2
+);</code></pre>
+    <h2>引数</h2>
+    <p><code>item</code></p>
+    <b>PS_STATUSNEXT</b>(現在の設定の次)または、<b>PS_STATUSBACK</b>(現在の設定の前)を指定します。
+    <p><code>param1</code></p>
+    <p>設定する項目を指定します。<a href="PS_STATUSParam.html">PS_STATUSのパラメータ表</a></p>
+    <p><code>param2</code></p>
+    <p>1=音声ガイドする、0=音声ガイドしないを指定します。<br>
+    <h2>戻り値</h2>
+    以前に設定されていた値が戻ります。</p>
+    <br>
+    <b>【例】音声スピードをアップする</b>
+    <p>次の例では音声スピードが5の場合、PCTKSetStatus関数で6になります。</p>
+    <pre><code>
+PCTKSetStatus( PS_STATUSNEXT, (LPVOID)PKDI_MSPEED, 1);
+</code></pre>
+  </div>
+</body>
+
+</html>

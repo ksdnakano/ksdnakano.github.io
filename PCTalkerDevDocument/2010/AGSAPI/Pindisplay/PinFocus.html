@@ -1,0 +1,51 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>PinFocus</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style3 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">フォーカスインしたウインドウ設定　PinFocus</p>
+<strong>BOOL PinFocusA( HWND </strong><em>aWnd</em><strong>, const char_t*</strong><em> aLabelString</em><strong>, uinsinged int </strong><em>aCtrlStyle</em><strong>, FARPROC</strong><em> aNotifyCallback<strong>, </strong></em><strong>LONG_PTR</strong> <em><em>aUserParam </em></em><strong>);</strong><br>
+<strong>BOOL PinFocusW( HWND </strong><em>aWnd</em><strong>, wchar_t*</strong><em> </em><strong><em>aLabelString</em><strong></strong>, </strong><strong>uinsinged int </strong><em>aCtrlStyle</em><strong>, FARPROC</strong><em> aNotifyCallback<strong>, </strong></em><strong>LONG_PTR</strong> <em><em>aUserParam </em></em><strong>);</strong><br>
+カスタムコントロール等をピンディスプレイ対応するために、フォーカスされたときに、ピンディスプレイに登録します。
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aWnd</em><strong></strong></td>
+    <td width="536" valign="top">ウインドウハンドル</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aLabelString</em></td>
+    <td valign="top"><p>コントロールのラベル文字列(タイトル)</p>
+    <p>下の エディットコントロールの例では、<strong>ラベル文字列</strong>=&quot;<strong>ハンドル(A):</strong>&quot;<br>
+    <img src="ctrl1.gif" width="229" height="72"></p>
+    <p>&nbsp;</p></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aCtrlStyle</em></td>
+    <td valign="top"><a href="../../../PCTKUSR/DEFINE.html#PPF_TYPES">コントロールの種類とスタイル</a>を指定します。</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aNotifyCallback</em></td>
+    <td valign="top">ピンディスプレイからの通知を受け取る<a href="../../../PCTKUSR/PinNotifyProc.html">コールバック関数</a>を指定します</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>LONG_PTR</em></td>
+    <td valign="top">コールバック関数に渡される任意の値を指定します。</td>
+  </tr>
+</table>
+<br>
+<p>※この関数呼び出し以降、PReadやVoiceGuideでは、ピンディスプレイ表示されなくなります。<br>
+　ピンディスプレイ出力を行うには、PinEDWrite、またはPinWriteをコールします。</p>
+<p>&nbsp;</p>
+</body>
+</html>

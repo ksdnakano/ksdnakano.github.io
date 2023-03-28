@@ -1,0 +1,192 @@
+﻿<html>
+
+<head>
+  <title>アクセシビリティ定義値</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="AccObject.css">
+</head>
+
+<body class="function">
+  <h1>アクセシビリティ定義値</h1>
+  <a name="ACCCONTROL_TYPE"></a>
+  <p class="title">ACCCONTROL_TYPE アクセシビリティコントロールID</p>
+  <p>ヘッダ:AccObjectCore.h</p>
+  <table class="enumdef">
+    <tr>
+      <td>ACCTYPE_UNKNOWN</td>
+      <td>不明</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_WINDOW</td>
+      <td>ウインドウ</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_PANE</td>
+      <td>ペイン</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_CLINET</td>
+      <td><a href="#ACCTYPE_chu1">※1</a></span></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_CUSTOM</td>
+      <td>カスタムコントロール<span class="style2"><a href="#ACCTYPE_chu2">※2</a></span></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_MENU</td>
+      <td>メニュー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_MENUBAR</td>
+      <td>メニューバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_MENUITEM</td>
+      <td>メニュー項目</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_PUSHBUTTON</td>
+      <td>プッシュボタン</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_CHECKBOX</td>
+      <td>チェックボックス</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_RADIOBUTTON</td>
+      <td>ラジオボタン</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_SPLITBUTTON</td>
+      <td>分割ボタン</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_SPINBUTTON</td>
+      <td>スピンボタン</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_IMAGE</td>
+      <td>画像</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_STATICTEXT</td>
+      <td>スタティックテキスト</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_EDIT</td>
+      <td>エディット</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_DOUMENT</td>
+      <td>ドキュメント</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_COMBOBOX</td>
+      <td>コンボボックス</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_LIST</td>
+      <td>リストコントロール</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_HEADER</td>
+      <td>ヘッダコントロール<a href="#ACCTYPE_chu2">※2</a></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_LISTITEM</td>
+      <td>リスト項目</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_DATAGLID</td>
+      <td>データグリッド<a href="#ACCTYPE_chu2">※2</a></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_DATAITEM</td>
+      <td>データ項目<a href="#ACCTYPE_chu2">※2</a></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_COLUMNHEADER</td>
+      <td>列ヘッダー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TREE</td>
+      <td>ツリーコントロール</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TREEITEM</td>
+      <td>ツリー項目</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TAB</td>
+      <td>タブコントロール</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TABITEM</td>
+      <td>タブ項目</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_GROUP</td>
+      <td>グループ</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_HYPERLINK</td>
+      <td>ハイパーリンク</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TITLEBAR</td>
+      <td>タイトルバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TOOLBAR</td>
+      <td>ツールバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_PROGRESSBAR</td>
+      <td>プログレスバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_SCROLLBAR</td>
+      <td>スクロールバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_SEPARATOR</td>
+      <td>区切り</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_SLIDER</td>
+      <td>スライダー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_STATUSBAR</td>
+      <td>ステータスバー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_TABLE</td>
+      <td>表</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_INDICATOR</td>
+      <td>インジケーター</td>
+    </tr>
+    <tr>
+      <td">ACCTYPE_TOOLTIP</td>
+        <td>ツールチップ</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_CALENDAR</td>
+      <td>カレンダー</td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_CLOCK</td>
+      <td>時計<a href="#ACCTYPE_chu1">※1</a></td>
+    </tr>
+    <tr>
+      <td>ACCTYPE_DIALOG</td>
+      <td>ダイアログ<a href="#ACCTYPE_chu1">※1</a></td>
+    </tr>
+  </table>
+  <a name="#ACCTYPE_chu1" class="note">※1 MSAAのみ有効</a><br>
+  <a name="#ACCTYPE_chu2" class="note">※2 UI Automationのみ有効</a>
+</body>
+
+</html>

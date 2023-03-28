@@ -1,0 +1,74 @@
+﻿<html>
+
+<head>
+  <title>AddEventHandler</a></title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>AddEventHandler</h1>
+  <p>イベントハンドラの登録</p>
+  <pre><code>HAGSHOOK <span class="fnname">AddKeyEventHandler</span>(
+    AGSEVENTTYPE aEventType
+    AGSEventHandler aEventHandler
+  )
+  </code></pre>
+  <p>AGSのイベントが発生した時に呼ばれる、コールバック関数を登録します。</p>
+  <p class="note">※コールバック関数は登録した順に呼び出されます。呼び出し順を変更するには
+    <ahref="ChangeEventHandlerLevel.html">ChangeEventHandlerLevel</a>関数をコールします</p>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>イベントタイプ。コールバックを登録するイベントの種類を設定します。<br />
+    参照:<a href="AgsEventType.html">AGSイベント一覧</a></p>
+  <code>aEventHandler</code>
+  <p>コールバック関数 </p>
+  <h2>戻り値</h2>
+  <code>HAGSHOOK</code>
+  <p>フックハンドル。イベントハンドラの登録解除(<a href="RemoveAccEventHandler.html">RemoveAccEventHandler</a>)に必要。</p>
+  <p class="otherinf">参照</p>
+  <p><a href="DefEvent.html">DefEvent</a><br>
+    <a href="RemoveAccEventHandler.html">RemoveAccEventHandler</a></p>
+  <br>
+  <hr>
+  <h1>イベントコールバック関数 </h1>
+  <pre><code>
+AGSEVENT_RET (CALLBACK *<span class="fnname">AGSEventHandler</span>)( 
+  AGSEVENTTYPE aEventType,
+  INT_PTR aParam 
+)
+</code></pre>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>発生したイベントの種類が渡されます</p>
+  <p>参照:<a href="AgsEventType.html">AGSイベント一覧</a></p>
+  <code>aParam</code>
+  <p>イベントパラメータ。発生したイベントに対するパラメータが渡されます。</p>
+  <p>参照:<a href="AgsEventType.html">AGSイベント一覧</a></p>
+  <h2>戻り値</h2>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>以降の処理を中断する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_AGSNEXT</td>
+      <td>以降の処理を続行する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_APIPROC</td>
+      <td>AGS処理を中断する。次のコールバック関数がある場合はコールし、AGS処理は次のコールバック関数に任せる</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_STOPNEXTHOOK</td>
+      <td>次のコールバック関数をパスする。AGS処理は行う</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>前のコールバック関数の戻り値を採用する</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>

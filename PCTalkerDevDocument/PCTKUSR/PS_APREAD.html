@@ -1,0 +1,88 @@
+﻿<html>
+
+<head>
+  <title>PC-Talker読み上げ時のコールバック関数の登録・取得</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <h1>PCTalker読み上げコールバック関数の登録・取得(読み上げの細かい制御)</h1>
+
+  <p>PCTalkerにコールバック関数を登録すると、読み上げ直前にコールバック関数がコールされます。コールバック関数を登録することにより、アプリケーションから読み上げの制御を行うことができます。</p>
+  <p class="note">注:コールバック関数は、登録したプロセス（アプリケーション）の読み上げ時のみ有効です。</p>
+  <hr>
+  <div class="function">
+    <h2>読み上げコールバック関数の登録</h2>
+    <p>コールバック関数を登録するには、PCTKUSR.DLLのPCTKSetStatus関数をコールします。</p>
+    <pre><code>
+///-------------------------
+/// PCTalkerコールバック関数の登録
+///-------------------------
+void PCTKRegistCallback
+{
+    .
+    .
+   <span class="fnname">PCTKSetStatus</span>( <b>PS_APREADCALLBACK</b>,
+    APActVoiceCallBack, // コールバック関数のアドレス
+    nullptr );
+    .
+    .
+ }
+///-------------------------
+/// コールバック関数
+///-------------------------
+BOOL CALLBACK <span class="fnname">APActVoiceCallBack</span>( UIN act,LPVOID aReserved )
+{
+  if( act == ACV_FOCUS){
+    PCTKPRead( "フォーカスされました",4,TRUE );
+    return  TRUE;
+  }
+  return FALSE;
+}
+
+</code></pre>
+
+    <p>引数1に<code>PS_APREADCALLBACK</code>を指定し、引数2には、コールバック関数のアドレスを指定します。引数3は、使用しないので<code>nullptr</code>を指定します。</p>
+    <p>戻り値の<code>DWORD</code>型は、以前に設定されていたコールバック関数のアドレスが返されます。</p>
+    <p>以前にコールバック関数が設定されていなければ、<code>nullptr</code>が返されます。</p>
+  </div>
+  <hr>
+  <div class="function">
+    <h2>コールバック関数の型</h2>
+    <p>コールバック関数は、以下のように宣言してください。</p>
+    <pre><code>
+BOOL CALLBACK <span class="fnname">APActVoiceCallBack</span>(
+    UINT act,
+    LPVOID reserve
+);</code></pre>
+    <h3>引数</h3>
+    <p><code>act</code></p>
+    <p>読み上げ区分。詳細は、<a href="PS_APREAD_KUBUN.html">PC-Talkerの読み上げ区分表</a>を参照してください。</p>
+    <p><code>reserved</code></p>
+    <p>未使用。常にnullptrがセットされます。</p>
+
+    <h3>戻り値:</h3>
+    <p><code>FALSE</code>を返すと、PC-Talkerは読み上げを行い。<code>TRUE</code>を返すと読み上げません。</p>
+  </div>
+  <hr>
+  <div class="function">
+    <h2>読み上げコールバック関数の取得</h2>
+    <p>PCTKUSR.DLLの<span class="fnname">PCTKGetStatus</span>関数をコールすると、現在、登録されているコールバック関数アドレスを取得することができます。</p>
+    <p><code>引数1</code> に <code>PS_APREADCALLBACK</code>を指定し、<code>引数2</code>と<code>引数3</code>は、使用しないのでnullptrを指定します。
+    </p>
+    <p>戻り値は、現在設定されているコールバック関数のアドレスが返されます。</p>
+    <pre><code>
+          .
+          .
+          /// PCTalkerコールバック関数の取得
+          DWORD OldFunc;
+
+          OldFunc = <span class="fnname">PCTKGetStatus</span>( PS_APREADCALLBACK,nullptr,nullptr );
+          .
+          .
+    </code></pre>
+  </div>
+</body>
+
+</html>

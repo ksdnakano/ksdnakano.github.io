@@ -1,0 +1,150 @@
+﻿body{
+    /*background-color: cornsilk ;
+    color: darkslategray;*/
+    padding-left: 20px;
+}
+table{
+    table-layout: auto;
+    width: 100%;
+    font-size: .875rem;    
+}
+/*
+   注意書き項目
+*/
+.note{
+    color: red;
+    font-weight: normal;
+}
+/*
+    廃止項目
+*/
+.obsolete{
+    text-decoration: line-through;
+}
+/*
+　強調項目
+*/
+.strtitle {
+    display       : inline-block;        /* ブロック化              */
+    font-weight   : bold;                /* 太字                    */
+  }
+/*---------------------------------
+　box枠
+----------------------------------*/
+.box{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color: #2c2c2f;
+    background: #f0f0f0;/*背景色*/
+}
+.box p{
+    margin: 0; 
+    padding: 0;
+}
+/*---------------------------------
+　関数一覧
+----------------------------------*/
+.functionlist .tabletitle{
+    text-align: left;
+    font-weight: bold;
+    padding-top: 20px;
+}
+.functionlist table td{
+    border-top: 1px solid grey;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right:  0px;
+    border-style: solid;
+}
+/*---------------------------------
+　ヘッダファイルやライブラリ等の情報
+----------------------------------*/
+.otherinf{
+    padding-top: 40px;
+}
+.otherinf table{
+    background-color: ghostwhite;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 100%;
+}
+.otherinf th{
+    text-align: left;
+    vertical-align: text-top;
+    width: 150px;
+    font-weight: bold;
+    border-top: 0px;
+}
+.otherinf td{
+    text-align: left;
+    font-size: .875rem;    
+}
+/*---------------------------------
+　関数定義
+----------------------------------*/
+.function{
+    font-size: .875rem;    
+}
+/* 関数プロトタイプ */
+.function pre{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(240, 240, 245);
+    border-top: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(200, 200, 200);
+    border-left: 1px solid rgb(200, 200, 200);
+    border-right:  1px solid rgb(200, 200, 200);
+}
+/* 引数、プロトタイプ、型 */
+.function code{
+    direction: ltr;
+    font-size: 1em;
+     font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+     padding: 3px;
+     background-color: rgb(240, 240, 245);
+     line-height: 19px;
+ }
+ /* 関数名 */
+ .function .fnname{
+    color: #007d9a;     
+ }
+ /*---------------------------------
+　定数定義テーブル
+ ----------------------------------*/
+.enumdef{
+    padding-bottom: 20px;
+ }
+.enumdef table{
+    padding-left: 20px;
+    padding-right: 20px;
+   
+}
+.enumdef .rawheader{
+    border-top: 0px;
+    padding-top: 20px;
+}
+.enumdef .define{
+    color: darkblue;
+    text-shadow: darkblue;
+    /*font-weight: bold;*/
+}
+.enumdef .normtext{
+    font-weight: normal;
+}
+.enumdef .rawtitle{
+    border-top: 0px;
+}
+.enumdef td,th{
+    text-align: left;
+    border-top: 1px solid grey;
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right:  0px;
+    border-style: solid;
+}
+.enumdef th{
+    width: 200px;
+}

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>SaveCheckState</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FFFF00}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">チェック切り替え状態を保存　SaveCheckState</p>
+<p><strong>void SaveCheckState( ACCCHECK_STATE </strong><em>aState</em><strong> );</strong></p>
+<p>AGSが保持するチェックの切り替え状態を変更します。</p>
+<p class="style1">※この関数はAGSが内部的に保持するチェック状態フラグを変更する関数です。<br>
+  　
+通常は、AGSが自動的にセットするのでこの関数をコールする必要はありません。</p>
+<p><span class="subtitle">引　数</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">aState</td>
+    <td width="533">
+	  チェック状態
+(AccObjectCore.h)	  
+	    <table>
+        <tr>
+          <td width="304"><strong>ACCCHECK_OFF</strong>=チェックOFF</td>
+        <tr>
+          <td><strong>ACCCHECK_ON</strong>=チェックON</td>
+        </tr>
+        <tr>
+          <td><strong>ACCCHECK_MIXED</strong>=ハーフチェック</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">参照</p>
+<table width="665" border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <td width="533"><a href="EnableCheckChangeGuide.html">EnableCheckChangeGuide</a>、<a href="LoadCheckState.html">LoadCheckState</a><br>
+    AccObjectCore.h</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

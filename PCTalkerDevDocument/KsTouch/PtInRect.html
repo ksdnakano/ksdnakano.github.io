@@ -1,0 +1,31 @@
+﻿<html>
+
+<head>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+    <title>PtInRect</title>
+</head>
+
+<body class="function">
+    <h1>CKSTouch::PtInRect</h1>
+    <p>指定座標が検出矩形内かどうか</p>
+    <pre><code>
+BOOL <span class="fnname">CKSTouch::PtInRect</span>( 
+    DWORD aRegistId,
+    LONG x,
+    LONG y
+)</code></pre>
+    <p>座標位置がタッチジェスチャを検出する有効範囲内かどうか調べます。</p>
+    <h2>引数</h2>
+    <code>aRegistId</code>
+    <p>タッチID。RegistNotifyXXX関数で返された値。</p>
+    <code>x</code>
+    <p>x座標</p>
+    <code>y</code>
+    <p>y座標</p>
+    <h2>戻り値</h2>
+    TRUE=座標が検出範囲に含まれています。<br />
+    FALSE=座標は検出範囲外です。
+</body>
+
+</html>

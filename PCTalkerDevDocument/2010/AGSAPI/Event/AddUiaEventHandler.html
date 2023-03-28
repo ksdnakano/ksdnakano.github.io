@@ -1,0 +1,83 @@
+﻿<html>
+
+<head>
+  <title>AddUiaEventHandler</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>AddUiaEventHandler</h1>
+  <p>UIAutomationイベントハンドラの登録</p>
+  <pre><code>
+HAGSHOOK <span class="fnname">AddUiaEventHandler</span>(
+  DWORD dwProcId,
+  UINT aEventId,
+  AGSUiaEventHandler aEventHandler
+)</code></pre>
+  <p>AGSのUIAutomationイベントが発生した時に呼ばれる、コールバック関数を登録します。</p>
+  <p class="style1">※この関数はPCTalkerプロセス(アウトプロセス)のみ有効です。コールバック関数もアウトプロセス上でコールされます。</p>
+  <p class="note">注意:PCTalkerのUIAutomation処理は、OSが32bitであれば32bitのアドイン処理、OSが64bitであれば、64bitのアドイン処理のみ有効です。<br />
+    アプリのbit数は関係ありません。(2015/11/05 PCTalker 10/8Ⅲ/7Ⅴ)</p>
+  <p class="note">※コールバック関数は登録した順に呼び出されます。呼び出し順を変更するには<a
+      href="ChangeEventHandlerLevel.html">ChangeEventHandlerLevel</a>関数をコールします</p>
+
+  <h2>引 数</h2>
+  <code>dwProcId</code>
+  <p>フックするプロセスのプロセスID</p>
+  <code>aEventId</code>
+  <p>UIAutomationイベントのイベントID(EVENTID:UIA_AutomationFocusChangedEventId等)</p>
+  <code>aEventHandler</code>
+  <p>コールバック関数</p>
+  <h2>戻り値</h2>
+  <code>HAGSHOOK</code>
+  <p>フックハンドル。フックハンドル。イベントハンドラの登録解除(<a href="RemoveUiaEventHandler.html">RemoveUiaEventHandler</a>)に必要。</p>
+  <p class="otherinf">参照</p>
+  <p><a href="DefEvent.html">DefEvent</a><br>
+    <a href="RemoveUiaEventHandler.html">RemoveUiaEventHandler</a></p>
+  <hr>
+  <h1>イベントコールバック関数 </h1>
+  <pre><code>
+  AGSEVENT_RET (CALLBACK *<span class="fnname">AGSUiaEventHandler</span>)( 
+    AGSEVENTTYPE aEventType,
+    INT_PTR aParam 
+  )</code></pre>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>AGSEVENTTYPE_UIAEVENTが設定されます。</p>
+  <code>aParam</code>
+  <p>UIAutomationイベント情報が渡されます</p>
+  <pre><code>
+    typedef struct{
+      EVENTID		eventId;			//	イベントID(UIA_EventIds:UIAutomationClient.h)
+      IUIAutomationElement*	pUIAElement;		//	UIAutomationElementインターフェイス
+      LONG_PTR	Param1;				//	付加情報1
+      LONG_PTR	Param2;				//	付加情報2
+    }*LPAGSUIAEVENT_INFO;</code></pre>
+  <h2>戻り値</strong></h2>
+
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>以降の処理を中断する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_AGSNEXT</td>
+      <td>以降の処理を続行する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_APIPROC</td>
+      <td>AGS処理を中断する。次のコールバック関数がある場合はコールし、AGS処理は次のコールバック関数に任せる</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_STOPNEXTHOOK</td>
+      <td>次のコールバック関数をパスする。AGS処理は行う</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>前のコールバック関数の戻り値を採用する</td>
+    </tr>
+  </table>
+</body>
+
+</html>

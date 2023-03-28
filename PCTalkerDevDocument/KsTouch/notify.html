@@ -1,0 +1,83 @@
+﻿<html>
+
+<head>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+    <title>タッチ通知</title>
+</head>
+
+<body class="function">
+    <h1>タッチ通知</h1>
+    <p>RegisterNotifyWnd関数で設定したウインドウに、SendMessageで通知される。</p>
+    <code>WPARAM</code>
+    <p>タッチアクション通知情報 LPTOUCHACT_NOTIFYINFO</p>
+    <code>LPARAM</code>
+    <p>タッチID(RegisterNotifyWndで返された値)</p>
+    <h5>TOUCHACT_NOTIFYINFO型</h5>
+    <pre><code>
+//	タッチアクション通知情報
+typedef struct{
+	TOUCHACTION	Action;		//	タッチアクション
+	int		nFingerCount;	//	指数
+	int		nTapCount;	//	タップ数
+	POINT		StarPoint;		//	アクション開始座標
+	POINT		EventPoint;		//	アクション座標
+	DWORD		wPointerId;	//	ポインターID
+	DWORD		dwStartTime;	//	開始時間
+	DWORD		dwEventTime;	//	イベント時間
+	BOOL		bPressSliderAct;	//	プレススライダーアクションか
+
+	//	付加情報(Actionの値により各値がセットされる)
+	union{
+		TOUCHEXT_SCALE	scale;              //  ピンチ付加情報(Action==TA_ACT_SCALE)
+		TOUCHEXT_SLIDE	slide;              //  スライドアクション付加情報(Action==TA_ACT_SLIDE)
+		TOUCHEXT_PRESSSLIDER pressSlider;   //  プレススライダー付加情報(Action==TA_ACT_PRESSSLIDERCHANGE)
+	}Ext;
+
+}TOUCHACT_NOTIFYINFO,*LPTOUCHACT_NOTIFYINFO;
+
+</code></pre>
+    <h5>タッチアクション(TA_ACT_XXXX)</h5>
+    <pre><code>
+enum TOUCHACTION{
+	TA_ACT_UNKNOWN    = 0,
+	TA_ACT_TAP        = 0x00000001,		//	タップ
+	TA_ACT_TAPANDHOLD = 0x00000002,		//	タップ&ホールド開始
+	TA_ACT_PRESSSLIDERCHANGE = 0x00000008,	
+	TA_ACT_FLICKUP    = 0x00000100,		//	フリック↑
+	TA_ACT_FLICKDOWN  = 0x00000200,		//	フリック↓
+	TA_ACT_FLICKLEFT  = 0x00000400,		//	フリック←
+	TA_ACT_FLICKRIGHT = 0x00000800,		//	フリック→
+	TA_ACT_HOVERDOWN  = 0x00010000,		//	------------- 現在通知しない
+	TA_ACT_HOVER      = 0x00020000,		//	------------- 現在通知しない
+	TA_ACT_HOVERUP    = 0x00040000,		//	長押し後の指UP
+	TA_ACT_SPLITTAP   = 0x01000000,		//	スプリットタップ
+	TA_ACT_SLIDE      = 0x02000000,		//	スライド
+	TA_ACT_SCALE	  = 0x04000000,		//	ピンチ
+};</code></pre>
+    <h5 id="a1">TOUCHEXT_SCALE型 </strong>ピンチ付加情報(TA_SCALE)</h5>
+    <pre><code>
+typedef struct _tagScaleNotifyInf
+{
+	BOOL	bStartAction;		//	TURE=ピンチ開始アクション FALSE=以降のピンチアクション
+	double	Parsent;			//	拡大率
+}TOUCHEXT_SCALE,*LPTOUCHEXT_SCALE;
+</code></pre>
+    <h5 id="a2">TOUCHEXT_SLIDE型 スライド付加情報(TA_SCALE)</h5>
+    <pre><code>
+typedef struct _tagSlideNotifyInf
+{
+	BOOL	bStartAction;		//	TURE=スライド開始アクション FALSE=以降のスライドアクション
+}TOUCHEXT_SLIDE,*LPTOUCHEXT_SLIDE;
+</code></pre>
+    <h5 id="a3">TOUCHEXT_PRESSSLIDER型 プレススライダー付加情報(TA_ACT_PRESSSLIDERCHANGE)</h5>
+    <pre><code>
+typedef struct _tagSeparateHoldNotifyInf
+{
+	SLIDEMOVE_DIR	FirstDir;		//	最初に確定された方向
+	SLIDEMOVE_DIR	SlideDir;		//	スライドされた方向
+}TOUCHEXT_PRESSSLIDER,*LPTOUCHEXT_PRESSSLIDER;
+</code></pre>
+</body>
+
+</html>

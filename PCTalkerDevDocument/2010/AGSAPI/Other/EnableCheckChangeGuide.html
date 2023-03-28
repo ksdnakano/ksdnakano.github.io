@@ -1,0 +1,42 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title><strong>EnableCheckChangeGuide</strong></title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FFFF00}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">チェック切り替えガイドの有効/無効設定　EnableCheckChangeGuide</p>
+<p><strong>void EnableCheckChangeGuide( BOOL </strong><em>aEnable</em><strong> );</strong></p>
+<p>強制的にチェック切り替えガイドを有効、または無効に設定します。</p>
+<p class="style1">※この関数はAGSが内部的に保持するチェック切り替えガイドフラグをセット、クリアする関数です。<br>
+  　
+通常は、AGSがWM_KEYDOWN時にフォーカスがチェックボックスであれば自動的に有効にセットし、切り替えガイド後、無効にセットするのでこの関数をコールする必要はありません。</p>
+<p><span class="subtitle">引　数</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead"><em>aEnable</em></td>
+    <td width="533"><table>
+        <tr>
+          <td width="304"><strong>TRUE</strong>=切り替えガイド有効</td>
+        <tr>
+          <td><strong>FALSE</strong>=無効</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">参照</p>
+<table width="665" border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <td width="533"><a href="LoadCheckState.html">LoadCheckState</a>、<a href="SaveCheckState.html">SaveCheckState</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

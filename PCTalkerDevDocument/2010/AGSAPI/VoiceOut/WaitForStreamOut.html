@@ -1,0 +1,58 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>WaitForStreamOut</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #FFFF00;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">読み上げの終了を待つ　WaitForStreamOut</p>
+<p><strong>BOOL WaitForStreamOut( </strong><strong>STREAMWAIT_STOPKEY</strong><em> aStopKey</em> <strong>);</strong></p>
+<p>読み上げ中であれば読み上げの終了を待ちます。</p>
+<p class="style1">※この関数は、読み上げが終了するか、中断キーで読み上げが中断されるまで処理を返しません。</p>
+<p class="style1"><span class="subtitle">引　数</span></p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aStopKey</em></td>
+    <td width="536" valign="top"><p>読み上げを中断するキー<a href="../DEFINE.html#VR_CTRL"></a></p>
+      <table>
+        <tr>
+          <td width="515"><strong>STREAMWAIT_STOP_NORMAL</strong>=ESC、SHIFT、CONTROLキーで読み上げ中断</td>
+        <tr>
+          <td><strong>STREAMWAIT_STOP_ALL</strong>=すべてのキーで読み上げ中断</td>
+        </tr>
+      </table>      </td>
+  </tr>
+</table>
+<p><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">BOOL</td>
+    <td width="533"><table>
+        <tr>
+          <td width="304"><strong>TRUE</strong>=読み上げを完了した</td>
+        <tr>
+          <td><strong>FALSE</strong>=読み上げが中断された</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">参照</p>
+<table width="665" border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <td width="533"><a href="StreamReadStart.html">StreamReadStart</a>、<a href="StreamRead.html">StreamRead</a>、<a href="WaitForStreamOut.html">WaitForStreamOut</a>、<a href="StreamReadEnd.html">StreamReadEnd</a>、<a href="PRead.html">PRead</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

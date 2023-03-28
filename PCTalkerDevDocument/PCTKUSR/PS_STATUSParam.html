@@ -1,0 +1,376 @@
+﻿<html>
+
+<head>
+  <title>PS_STATUSのパラメータ表</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+
+  <h1>PS_STATUSのパラメータ表</h1>
+  <div class="function">
+    <p>参照:<a href="PS_STATUS.html">PC-Talker設定値(ダイアログの値)の設定と取得</a>、<a href="PCTKSetStatus.html">PCTKSetStatus</a></p>
+    <pre><code>
+PCTKSetStatus( PS_STATUS,param1,param2);
+PCTKSetStatus( PS_STATUSNEXT,param1,nullptr );
+PCTKSetStatus( PS_STATUSBACK,param1,nullptr);
+PCTKGetStatus( PS_STATUS,param1,nullptr );
+</code></pre>
+
+    <div class="enumdef">
+      <table>
+        <thead>
+          <th class="rawtitle">項目</th>
+          <th class="rawtitle">param1(項目値)</th>
+          <th class="rawtitle">param2(設定値)</th>
+          </tr>
+          <tr>
+            <td>操作案内する・しない</td>
+            <td>PKDI_CTRLLANG<br>2</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>項目の説明する・しない</td>
+            <td>PKDI_CTRLNAME<br>3</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>カーソル移動時の読み方</td>
+            <td>PKDI_CURGUIDE<br>5</td>
+            <td>
+              <p><b>PKDG_ON</b>=音読み<br />
+                <b>PKDG_ONKUN</b>=音訓読み<br />
+                <b>PKDG_SYOUSAI1</b>=簡易読み<br />
+                <b>PKDG_SYOUSAI2</b>=詳細音訓<br />
+                <b>PKDG_SYOUSAI3</b>=詳細区分<br />
+                <b>PKDG_BEEP</b>=ビープ音のみ</p>
+            </td>
+          </tr>
+          <tr>
+            <td>カーソル移動時のフォネティック読みする・しない</td>
+            <td>PKDI_CURPHONETIC<br />6</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>上下カーソル移動時の行読みする・しない</td>
+            <td>PKDI_CURUD<br />7</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>英文・翻訳読み(ダイアログにはありません)する・しない</td>
+            <td>PKDI_EIGO<br />8</td>
+            <td><b>1</b>=英語読みする<br />
+              <b>2</b>=翻訳読みする<br />
+              <b>0</b>=英語読み・翻訳読みしない</td>
+          </tr>
+          <tr>
+            <td>改行の読み方</td>
+            <td>PKDI_EXKIGOU<br />9</td>
+            <td><b>PKDE_YOMAN</b>=改行を読み飛ばします。<br />
+              <b>PKDE_IKITUGI</b>=改行を読まずに、息継ぎを行います。<br />
+              <b>PKDE_YOMU</b>=改行を読みます。</td>
+          </tr>
+          <tr>
+            <td>日本語変換時の読み方</td>
+            <td>PKDI_IMEGUIDE<br />10</td>
+            <td><b>PKDG_ON</b>=音読み<br />
+              <b>PKDG_ONKUN</b>=音訓読み<br />
+              <b>PKDG_SYOUSAI1</b>=簡易読み<br />
+              <b>PKDG_SYOUSAI2</b>=詳細音訓<br />
+              <b>PKDG_SYOUSAI3</b>=詳細区分<br />
+              <b>PKDG_BEEP</b>=ビープ音のみ</td>
+          </tr>
+          <tr>
+            <td>日本語変換時のフォネティック読みする・しない</td>
+            <td>PKDI_IMEPHONETIC<br />11</td>
+            <td><b>1</b>=する<br />
+              <b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>括弧読みする・しない</td>
+            <td>PKDI_KAKKO<br />12</td>
+            <td><b>1</b>=する<br />
+              <b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>数字の位取り読みする・しない</td>
+            <td>PKDI_KETAYOMI<br />13</td>
+            <td><b>1</b>=する<br />
+              <b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>キーの説明読みする・しない</td>
+            <td>PKDI_KEYGUIDE<br />14</td>
+            <td><b>1</b>=する<br />
+              <b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>記号読みする・しない</td>
+            <td>PKDI_KIGOU<br />15</td>
+            <td><b>1</b>=する<br />
+              <b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>句点読みする・しない</td>
+            <td>PKDI_KUTEN<br />20</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>リストビューモード</td>
+            <td><del>PKDI_LVMODE<br />18</del>
+              <p class="note">XP Ver.2以降廃止</p>
+            </td>
+            <td><del><b>0</b>=変更しない<br />
+                <b>1</b>=一覧表示</br>
+                <b>2</b>=詳細表示
+              </del>
+            </td>
+          </tr>
+          <tr>
+            <td>マウス読みする・しない</td>
+            <td>PKDI_MOUSE<br />19</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>音声スピード</td>
+            <td>PKDI_MSPEED<br />20</td>
+            <td>1から9</td>
+          </tr>
+          <tr>
+            <td>音声ボリューム</td>
+            <td>PKDI_MVOLUME<br />21</td>
+            <td>1から9</td>
+          </tr>
+          <tr>
+            <td>音声音程</td>
+            <td>PKDI_RPITCH<br />24</td>
+            <td>1から9</td>
+          </tr>
+          <tr>
+            <td>代替キー</td>
+            <td>PKDI_SUBSKEY<br />26</td>
+            <td>仮想キーコード。0を指定した場合は、代替キーを使用しません。</td>
+          </tr>
+          <tr>
+            <td>代替キー回数</td>
+            <td>PKDI_SUBSNUM</br>27</td>
+            <td>1から3</td>
+          </tr>
+          <tr>
+            <td>PCTalker ON/OFF</td>
+            <td>PKDI_PCTKONOFF<br />28</td>
+            <td><b>1</b>=ON<br /><b>0</b>=OFF</td>
+          </tr>
+          <tr>
+            <td>クリップボード自動読みする・しない</td>
+            <td>PKDI_AUTOCLIP<br />29</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <th colspan="3" class="rawheader">以下は、PCTalker Ver.3.0以上</td>
+          </tr>
+          <tr>
+            <td>音量調整する・しない</td>
+            <td>PKDI_VOLSET<br />30</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>Waveボリューム</td>
+            <td>PKDI_WVOLUME<br />31</td>
+            <td>1から9</td>
+          </tr>
+          <tr>
+            <td>PCTalkerプロセスの優先順位(パフォーマンス)</td>
+            <td><del>PKDI_PRIORITY<br />32</del>
+              <p class="note">XP Ver.2以降廃止</p>
+            </td>
+            <td><del>>0(低)から2(高)</del< /td>
+          </tr>
+          <tr>
+            <th colspan="3" class="rawheader">以下は、XP Ver3、 Vista以上</th>
+          </tr>
+          <tr>
+            <td>ピンディスプレイ出力する/しない</td>
+            <td>PKDI_PINDISPLAY<br />33</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>日本語変換時の読み方</td>
+            <td>PKDI_IMMREVGUIDE<br />34</td>
+            <td><b>1</b>=ガイドラインすべてを読み上げる<br />
+              <b>0</b>=注目文節を読み上げる</td>
+          </tr>
+          <tr>
+            <td>EXCELカーソル移動時、番地も読み上げる</td>
+            <td>PKDI_EXCELCURADDR</br>35</td>
+            <td><b>1</b>=番地を読み上げる <b>0</b>=読み上げない</td>
+          </tr>
+          <tr>
+            <td>EXCEL上下セル移動時、行読みする/しない</td>
+            <td>PKDI_EXCELLINEREAD<br />36</td>
+            <td><b>1</b>=行読みする<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>ブラウザでダイレクトキーを使用する</td>
+            <td>PKDI_IEDIRECTKEY<br />37</td>
+            <td><b>1</b>=ダイレクトキーを使用する<br /><b>0</b>=ダイレクトキーを使用しない</td>
+          </tr>
+          <tr>
+            <td>NUM,CAPS,カナキー切り替えをガイドする/しない</td>
+            <td>PKDI_SPECIALKEY<br />38</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>EXCELでカーソル移動時、入力規則も読み上げる</td>
+            <td>PKDI_EXCELINPUTRULE<br />40</td>
+            <td><b>1</b>=読み上げる<br /><b>0</b>=読み上げない</td>
+          </tr>
+          <tr>
+            <td>サブ音声の音程</td>
+            <td>PKDI_SUBENGINE_PITCH<br />50
+              <p class="note">※2007/10/22追加</p>
+            </td>
+            <td>1～9</td>
+          </tr>
+
+          <tr>
+            <th colspan="3" class="rawheader">以下は、PCTalker2010以上</th>
+          </tr>
+          <tr>
+            <td>マウスカーソルに合わせ十字線を表示する/しない</td>
+            <td>PKDI_SHOWCROSSHAIR<br />60</td>
+            <td>60</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>十字線の色</td>
+            <td>PKDI_COLORCROSSHAIR<br />61</td>
+            <td>COLORREF値</td>
+          </tr>
+          <tr>
+            <td>十字線の透明度</td>
+            <td>PKDI_LAYEREDCROSSHAIR<br />62</td>
+            <td>0～9</td>
+          </tr>
+          <tr>
+            <td>代替キーの入力が有効になったときの通知方法</td>
+            <td>PKDI_SUBSKEYNOTICE<br />63</td>
+            <td><b>0</b>=音声ガイド<br /><b>1</b>=ビープ音 </td>
+          </tr>
+          <tr>
+            <td>拡張コマンド入力に使用する拡張キー</td>
+            <td>PKDI_EXCMDKEY<br />64</td>
+            <td><b>0</b>=Windowsキー<br /><b>1</b>=無変換キー</td>
+          </tr>
+          <tr>
+            <td>フォーカスの強調枠を表示する/しない</td>
+            <td>PKDI_SHOWFOCUS<br />65</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>強調枠の色<< /td>
+            <td>PKDI_COLORFOCUS<br />66</td>
+            <td>COLORREF値</td>
+          </tr>
+          <tr>
+            <td>強調枠の透明度</td>
+            <td>PKDI_LAYEREDFOCUS<br />67</td>
+            <td>0～9</td>
+          </tr>
+          <tr>
+            <td>仮想カーソルの注目枠を表示する/しない</td>
+            <td>PKDI_SHOWVIRTUAL<br />68</td>
+            <td>68</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>注目枠の色</td>
+            <td>PKDI_COLORVIRTUAL<br />69</td>
+            <td>COLORREF値</td>
+          </tr>
+          <tr>
+            <td>注目枠の透明度</td>
+            <td>PKDI_LAYEREDVIRTUAL<br />70</td>
+            <td>0～9</td>
+          </tr>
+          <tr>
+            <td>ピンディスプレイ制御システム</td>
+            <td>PKDI_PINSYS<br />71</td>
+            <td><b>0</b>=標準<br /><b>1</b>=NBSシステム</td>
+          </tr>
+          <tr>
+            <td>ブラウザエディットボックス保護モードON/OFF</td>
+            <td>PKDI_IEGUARDEDITBOX<br />72</td>
+            <td><b>1</b>=ON<br /><b>0</b>=OFF</td>
+          </tr>
+          <tr>
+            <td>ブラウザ マウスカーソルを追従する/しない</td>
+            <td>PKDI_MSIE_FOLLOW_MOUSE<br />73</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>マルチメディアキー押下時の音声停止する/しない</td>
+            <td>PKDI_MULTIMEDAKEY<br />74</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>メニューの説明ガイドする/しない</td>
+            <td>PKDI_MENUDESCRIPTION<br />75</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>項目のショートカットキーガイドする/しない</td>
+            <td>PKDI_GUIDEHOTTOKEY<br />76</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>パスワードの読み上げする/しない</td>
+            <td>PKDI_GUIDEPASSWORD<br />77</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <td>パスワードをカーソル移動時に識別読みする/しない</td>
+            <td>PKDI_GUIDEPASSWORDSIKIBETU<br />78</td>
+            <td><b>1</b>=する<br /><b>0</b>=しない</td>
+          </tr>
+          <tr>
+            <th colspan="3" class="rawheader">以下は、タッチ対応版以上</th>
+          </tr>
+          <tr>
+            <td>タッチ操作開始/停止</td>
+            <td>PKDI_TOUCHONOFF<br />200</td>
+            <td><b>1</b>=タッチ操作開始<br /><b>0</b>=停止</td>
+          </tr>
+          <tr>
+            <td>タッチモード(取得のみ)</td>
+            <td>PKDI_TOUCHMODE<br />201</td>
+            <td><b>0</b>=キーアシスト<br />
+              <b>1</b>=タッチビュー<br />
+              <b>2</b>=タッチ操作停止</td>
+          </tr>
+          <tr>
+            <th colspan="3" class="rawheader">以下は、PCTalker 8 Ver.2.14以降</th>
+          </tr>
+          <tr>
+            <td>PCTalker許可フラグ(取得のみ)</td>
+            <td>PKDI_CAPABILITY<br />202</td>
+            <td><b>PKDICAPA_BWKS</b>(0x001000000)=ブレイルワークスが実行可能<br />
+          </tr>
+          <tr>
+            <td>タッチ キーアシストウインドウの位置</td>
+            <td>PKDI_TOUCHKEYASSIST_POS<br />203</td>
+            <td>
+              <p><b>KsTouch.hのKEYASSISTWND_POSITION</b></p>
+              <b>KEYASSISTWNDPOS_AUTO</b>(1)=自動<br />
+              <b>KEYASSISTWNDPOS_LEFTTOP</b>(2)=左上<br />
+              <b>KEYASSISTWNDPOS_RIGHTTOP</b>(3)=右上<br />
+              <b>KEYASSISTWNDPOS_LEFTBOTTOM</b>(4)=左下<br />
+              <b>KEYASSISTWNDPOS_RIGHTBOTTOM</b>(5)=右下
+          </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+﻿<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+  <title>PCTKUSR</title>
+</head>
+
+<body>
+  <h1>PCTKUSR.DLLの使用</h1>
+
+  <p>PCTKUSR.DLLは、アプリケーションからPCTalkerを制御できるAPIライブラリです。 </p>
+  <div class="functionlist">
+    <table>
+      <tr>
+        <th class="tabletitle">関数名</th>
+        <th class="tabletitle">説明</th>
+      </tr>
+      <tr>
+        <td width="193"><a href="PCTKVoiceGuide.html">PCTKVoiceGuide</a></td>
+        <td width="532">文字列の読み上げ</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPRead.html">PCTKPRead</a></td>
+        <td>
+          文字列の読み上げ(優先レベル・構文解析設定)
+        </td>
+      </tr>
+      <tr>
+        <td><a href="PCTKCGuide.html">PCTKCGuide</a></td>
+        <td>文字列を１文字ずつ読み上げ</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKGetVStatus.html">PCTKGetVStatus</a></td>
+        <td>音声発声状態の取得</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKVReset.html">PCTKVReset</a></td>
+        <td>発生中の音声の中断</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKSetStatus.html">PCTKSetStatus</a></td>
+        <td>PCTalker項目設定<font color="#990000">(ダイアログ値、読み上げ禁止設定、コールバック)</font>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="PCTKGetStatus.html">PCTKGetStatus</a></td>
+        <td>PCTalker項目設定値取得<font color="#990000">(ダイアログ値、読み上げ禁止設定、コールバック)</font>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="PCTKCommand.html">PCTKCommand</a></td>
+        <td>PCTalkerコマンド(ショートカット)実行</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKBeep.html">PCTKBeep</a></td>
+        <td>ビープ音を鳴らす</td>
+      </tr>
+      <tr>
+        <td class="obsolete"><a href="PCTKEventHook.html">PCTKEventHook</a></td>
+        <td><span class="obsolete">PCTalkerイベントにフックする(PCTalker Ver.5.0以上)</span> 　<span
+            class="note">※PCTalkerXP2以降廃止</span></td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPReadEx.html">PCTKPReadEx</a></td>
+        <td>文字列の読み上げ(優先レベル・構文解析、制御フラグ設定)　<span class="note">PCTalker Ver.5.0以上</span></td>
+      </tr>
+      <tr>
+        <td><a href="PCTKCGuideEx.html">PCTKCGuideEx</a></td>
+        <td>文字列を１文字ずつ読み上げ、制御フラグ設定　<span class="note"">PCTalker Ver.5.0以上</span>
+        </td>
+      </tr>
+      <tr>
+      <td colspan=" 2" class=" tabletitle">
+            <p>ブレイルワークス対応<span class="note">　※ブレイルワークス以降</span></p>
+        </td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPinStatus.html">PCTKPinStatus</a></td>
+        <td>ブレイルワークスが使用可能か</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPinFocus.html">PCTKPinFocus</a></td>
+        <td>フォーカスインしたウインドウ設定</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPinIsFocus.html">PCTKPinIsFocus</a></td>
+        <td>フォーカスイン状態の取得</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPinEDWrite.html">PCTKPinEDWrite</a></td>
+        <td>ピンディスプレイへ編集行を表示</td>
+      </tr>
+      <tr>
+        <td><a href="PCTKPinWrite.html">PCTKPinWrite</a></td>
+        <td>ピンディスプレイへ文字列表示</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="otherinf">
+    <table>
+      <tr>
+        <th>ヘッダファイル</th>
+        <td>
+          PCTKUSR.h<br>
+          PCTKBASE.h
+        </td>
+      </tr>
+      <tr>
+        <th>DLLファイル</th>
+        <td>PCTKUSR.DLL</td>
+      </tr>
+      <tr>
+        <th>インポートライブラリ</th>
+        <td>PCTKUSR.Lib</td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

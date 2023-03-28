@@ -1,0 +1,56 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>IdStringGuideW</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p class="title">定義されたID値と文字列の音声ガイド　IdStringGuideW</p>
+<p><strong>void IdStringGuideW( HWND <em>aWnd,</em>DWORD <em>aGuideId</em> ,const wchar_t <em>aString</em>,BOOL <em>aIdFront</em>,BOOL <em>aNextContinue</em> );</strong></p>
+<p>pctkvg.hで定義されているIDと文字列を音声ガイドします。</p>
+<p>【例】ツリービューの階層レベルの音声ガイド</p>
+<pre>
+{
+	.
+	IdStringGuide( wndTree,VGI_LEVEL,L&quot;2&quot;,TRUE , FALSE );
+	.
+}
+
+音声出力: &quot;レベル2&quot;</pre>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead">aWnd</td>
+    <td valign="top">音声ガイドするウインドウ</td>
+  </tr>
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aGuideId</em></td>
+    <td width="536" valign="top">音声ガイドID(チェック/チェックなしなど,VGI_...:pctkvg.h)</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aString</em></td>
+    <td valign="top">音声ガイド文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aIdFront</em></td>
+    <td valign="top">TRUE=IDを音声ガイドした後、文字列を音声ガイドします。<br>
+FALSE=文字列を音声ガイドした後、IDを音声ガイドします。</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aNextContinue</em></td>
+    <td valign="top">TRUE=次に音声ガイドが続く<br>
+   	FALSE=この関数コールで音声出力する</td>
+  </tr>
+</table>
+<p class="subtitle">参照</p>
+<table width="665" border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <td width="533">pctkvg.h</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

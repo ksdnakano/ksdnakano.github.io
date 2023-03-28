@@ -1,0 +1,577 @@
+﻿<html>
+
+<head>
+  <title>AGS API</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="agsapi.css">
+</head>
+
+<body class="function">
+  <h1 class="title">CAgsApi クラスメンバ</h1>
+  <p class="style2">このクラスはAGSのイベントコールバック関数を登録したり、音声出力、ピンディスプレイ出力したりするメ
+    ンバが用意されています。</p>
+  <p class="style2">ヘッダ AgsAPI.h</p>
+  <table class="enumdef">
+    <tr>
+      <th colspan="2" class="rawheader">イベントAPI</th>
+    </tr>
+    <tr>
+      <td><a href="Event/AddFocusEventHandler.html">AddFocusEventHandler</a></td>
+      <td>フォーカスイベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveFocusEventHandler.html">RemoveFocusEventHandler</a></td>
+      <td>フォーカスイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/AddKeyEventHandler.html">AddKeyEventHandler</a></td>
+      <td>キーイベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveKeyEventHandler.html">RemoveKeyEventHandler</a></td>
+      <td>キーイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td width="255"><a href="Event/AddMessageEventHandler.html">AddMessageEventHandler</a></td>
+      <td width="690">メッセージイベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveMessageEventHandler.html">RemoveMessageEventHandler</a></td>
+      <td>メッセージイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/AddAccEventHandler.html">AddAccEventHandler</a></td>
+      <td>アクセシビリティイベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveMessageEventHandler.html">RemoveAccEventHandler</a></td>
+      <td>アクセシビリティハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/AddBWKSNotifyEventHandler.html">AddBWKSNotifyEventHandler</a></td>
+      <td>ブレイルワークスイベントハンドラの追加</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveBWKSNotifyEventHandler.html">RemoveBWKSNotifyEventHandler</a></td>
+      <td>ブレイルワークスイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/AddUiaEventHandler.html">AddUiaEventHandler</a></td>
+      <td>UIAutomationイベントハンドラの追加</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveUiaEventHandler.html">RemoveUiaEventHandler</a></td>
+      <td>UIAutomationイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/AddEventHandler.html">AddEventHandler</a></td>
+      <td>イベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/RemoveEventHandler.html">RemoveEventHandler</a></td>
+      <td>イベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/HookTouchProcess.html">HookTouchProcess</a></td>
+      <td>タッチイベントハンドラの登録</td>
+    </tr>
+    <tr>
+      <td><a href="Event/UnhookTouchProcess.html">UnhookTouchProcess</a></td>
+      <td>タッチイベントハンドラの削除</td>
+    </tr>
+    <tr>
+      <td><a href="Event/GetEventHandlerLevel.html">GetEventHandlerLevel</a></td>
+      <td>イベントハンドラの優先順序取得</td>
+    </tr>
+    <tr>
+      <td><a href="Event/ChangeEventHandlerLevel.html">ChangeEventHandlerLevel</a></td>
+      <td>イベントハンドラの優先順序変更</td>
+    </tr>
+    <tr>
+      <td><a href="Event/DefEvent.html">DefEvent</a></td>
+      <td>AGSデフォルトのイベント処理</td>
+    </tr>
+    <tr>
+      <td><a href="Event/DefCommand.html">DefCommand</a></td>
+      <td>PCTalkerコマンドの実行</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="rawheader">音声出力</th>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/FocusGuideW.html">FocusGuideW</a></td>
+      <td>PCTalker対応コントロールのフォーカス音声ガイド出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/FocusGuide2W.html">FocuseGuide2W</a></td>
+      <td>PCTalker対応コントロールのフォーカス音声ガイド出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/KeyechoGuide.html">KeyechoGuide</a></td>
+      <td>キーエコーを音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/IdGuide.html">IdGuide</a></td>
+      <td>定義されたID値を音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VoiceGuide.html">VoiceGuide</a></td>
+      <td>ガイド用なめらか読み(※日本語エンジンのみ)</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/ValueGuide.html">ValueGuideW</a></td>
+      <td>値文字列をガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/IdStringGuideW.html">IdStringGuideW</a></td>
+      <td>定義されたガイドIDと文字列を音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/PRead.html">PRead</a></td>
+      <td>なめらか読み</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/CGuide.html">CGuide</a></td>
+      <td>カーソル文字読み</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/MenuItemGuide.html">MenuItemGuide</a></td>
+      <td>メニュー項目を音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/MenuDescGuide.html">MenuDescGuide</a></td>
+      <td>メニューの説明文を音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VoiceStop.html">VoiceStop</a></td>
+      <td>音声出力の停止</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VoiceStatus.html">VoiceStatus</a></td>
+      <td>音声出力状態の取得</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/BeepOut.html">BeepOut</a></td>
+      <td>ビープ音出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/SetGuideRole.html">SetGuideRole</a></td>
+      <td>音声ガイドのロール属性値を設定する</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/GetGuideRole.html">GetGuideRole</a></td>
+      <td>音声ガイドのロール属性値を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/StreamReadStart.html">StreamReadStart</a></td>
+      <td>全文読みを開始する</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/StreamRead.html">StreamRead</a></td>
+      <td>全文読みの文字列を音声出力する(読み上げ終了、中断まで処理を返さない)</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/StreamReadEnd.html">StreamReadEnd</a></td>
+      <td>全文読みを終了する</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/WaitForStreamOut.html">WaitForStreamOut</a></td>
+      <td>全文読みの音声出力を待つ(読み上げ終了、中断まで処理を返さない)</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/SetKeyVoiceStop.html">SetKeyVoiceStop</a></td>
+      <td>キーボード押下で音声中断する/しない設定</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/SetMouseVoiceStop.html">SetMouseVoiceStop</a></td>
+      <td>マウスボタン押下で音声中断する/しない設定</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/SetBookEngineMode.html">SetBookEngineMode</a></td>
+      <td>なめらか読みを読書読みする/しない設定</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/SetOcrMode.html">SetOcrMode</a></td>
+      <td>OCR実行モードの設定</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/GuideOCRMessageBox.html">GuideOCRMessageBox</a></td>
+      <td>ウインドウをOCRして音声出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/OcrFocusGuide.html">OcrFocusGuideW</a></td>
+      <td>仮想カーソルのフォーカスコントロールのOCR音声出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/GetCtrlVGuideInf.html">GetCtrlVGuideInf</a></td>
+      <td>標準コントロールの状態音声ガイド値の取得</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="rawheader">仮想カーソル
+        <p class="normtext">※VCxxx関数は、PCTalkerの設定-[ユーザー補助]-[仮想カーソル移動
+          時の注目枠を表示する]に連動させる場合にコールする</p>
+      </th>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/RegistNoVirtualObject.html">RegistNoVirtualObjectW</a></td>
+      <td>仮想カーソル移動しないウインドウクラスの登録</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VCFocusGuide.html">VCFocusGuideW</a></td>
+      <td>PCTalker対応コントロールのフォーカス音声ガイド出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VCGuideString.html">VCGuideStringW</a></td>
+      <td>文字列の音声出力</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VCGuideId.html">VCGuideId</a></td>
+      <td>定義されたID値を音声ガイドする</td>
+    </tr>
+    <tr>
+      <td><a href="VoiceOut/VCGuideChar.html">VCGuideCharW</a></td>
+      <td>カーソル文字読み</td>
+    </tr>
+    <tr>
+      <th class="rawheader">ウインドウ制御・アクセシビリティ</th>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/GetCtrlType.html">GetCtrlType</a></td>
+      <td>ウインドウからAGSコントロールIDを取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/GetLabelText.html">GetLabelText</a></td>
+      <td>ウインドウからラベル文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/GetValueText.html">GetValueText</a></td>
+      <td>ウインドウから値文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/IsMessageBox.html">IsMessageBox</a></td>
+      <td>ウインドウがメッセージボックスかどうか調べる</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/IsEnableAction.html">IsEnableAction</a></td>
+      <td>指定のガイド処理を実行できるか調べる</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/IsSelectableCtrl.html">IsSelectableCtrl</a></td>
+      <td>ウインドウが選択型コントロールかどうか調べる</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/OpenFindDialog.html">OpenFindDialog</a></td>
+      <td>検索ダイアログを表示する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccGetFocusCtrlType.html">AccGetFocusCtrlType</a></td>
+      <td>アクセシビリティフォーカスイベント時のコントロールタイプを取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccCtrlIdToVoiceCtrlId.html">AccCtrlIdToVoiceCtrlId</a></td>
+      <td>
+        <p>アクセシビリティコントロールIDから音声コントロールIDを取得する</p>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccGetLabelText.html">AccGetLabelText</a></td>
+      <td>アクセシビリティラベル文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccGetValueText.html">AccGetValueText</a></td>
+      <td>アクセシビリティ値文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccGetGuides.html">AccGetGuides</a></td>
+      <td>アクセシビリティガイド値を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="WinAcc/AccGetHelpText.html">AccGetHelpText</a></td>
+      <td>アクセシビリティヘルプ文字列を取得する</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="rawheader">ピンディスプレイ　ブレイルワークス対応</th>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinStatus.html">PinStatus</a></td>
+      <td>ブレイルワークスでピンディスプレイ表示可能かどうか</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinFocus.html">PinFocus</a></td>
+      <td>フォーカスインしたウインドウ設定</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinIsFocus.html">PinIsFocus</a></td>
+      <td>フォーカスイン状態のチェック</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinEDWrite.html">PinEDWrite</a></td>
+      <td>ピンディスプレイへ編集行を表示(エディット型コントロール)</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinWrite.html">PinWrite</a></td>
+      <td>ピンディスプレイへ文字列表示</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinStatusCell.html">PinStatusCell</a></td>
+      <td>ピンディスプレイへステータス文字列表示</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/PinReset.html">PinReset</a></td>
+      <td>ピンディスプレイのリセット</td>
+    </tr>
+    <tr>
+      <td><a href="Pindisplay/BOut.html">BOut</a></td>
+      <td>ピンディスプレイへ文字列表示</td>
+    </tr>
+    <tr>
+      <th colspan="2" class="rawheader">PCTalker設定/取得</th>
+    </tr>
+    <tr>
+      <td><a href="Config/GetProductModel.html">GetProductModel</a></td>
+      <td>プロダクトモデル(PCTalkerかVDM)を取得</td>
+    </tr>
+    <tr>
+      <td><a href="Config/SetConfig.html">SetConfig</a></td>
+      <td>PCTalker設定</td>
+    </tr>
+    <tr>
+      <td><a href="Config/GetConfig.html">GetConfig</a></td>
+      <td>PCTalker設定値の取得</td>
+    </tr>
+    <tr>
+      <td><a href="Config/SetConfigNext.html">SetConfigNext</a></td>
+      <td>設定値を次の値へ</td>
+    </tr>
+    <tr>
+      <td><a href="Config/SetConfigPrev.html">SetConfigPrev</a></td>
+      <td>設定値を前の値へ</td>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <div align="left"><strong>描画監視</strong></div>
+      </th>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmProcessMonitor.html">WtmProcessMonitor</a></td>
+      <td>プロセスの描画を監視する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmIsWindowMonitoring.html">WtmIsProcessMonitoring</a></td>
+      <td>
+        <p>プロセスの描画が監視されているかどうか取得する</p>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmWindowMonitor.html">WtmWindowMonitor</a></td>
+      <td>ウインドウ内の描画を監視する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmReleaseWindow.html">WtmReleaseWindow</a></td>
+      <td>監視中のウインドウ情報を解放する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmIsWindowMonitoring.html">WtmIsWindowMonitoring</a></td>
+      <td>ウインドウ内の描画監視中か取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmGetRectText.html">WtmGetRectText</a></td>
+      <td>矩形内の文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmSetBlankWidth.html">WtmSetBlankWidth</a></td>
+      <td>空白の幅を設定する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmGetGridRect.html">WtmGetGridRect</a></td>
+      <td>選択中の矩形座標を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmGetGridRect.html">WtmGetGridText</a></td>
+      <td>選択中の文字列を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmGetPointText.html">WtmGetPointText</a></td>
+      <td>指定座標位置の文字を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmLockMonitor.html">WtmLockMonitor</a></td>
+      <td>描画監視の一時停止</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmUnlockMonitor.html">WtUnlockMonitor</a></td>
+      <td>停止中の描画監視の復帰</td>
+    </tr>
+    <tr>
+      <td><a href="Wtm/WtmDump.html">WtmDump</a></td>
+      <td>スクリーンデータ(メタデータ)をファイルへダンプ出力する</td>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <div align="left"><strong>UIAutomation</strong></div>
+      </th>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style2"><a href="Uia/GetUIA.html">GetUIA</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style2">IUIAutomationインターフェイスを取得する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Uia/UiaEditSetFocus.html">UiaEditSetFocus</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">UIA対応Editにフォーカスされたことを通知する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Uia/UiaEditKillFocus.html">UiaEditKillFocus</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">UIA対応Editからフォーカスが削除されたことを通知する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Uia/UiaEditCommand.html">UiaEditCommand</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">UIA対応EditにPCTalkerコマンドを実行させる<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a
+          href="Uia/UiaEditSetOrientation.html">UiaEditSetOrientation</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">UIA対応Editの書き方を指定する<br>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <div align="left"><strong>その他特殊</strong></div>
+      </th>
+    </tr>
+    <tr>
+      <td><a href="Other/IsMenuloop.html">IsMenuloop</a></td>
+      <td>メニュー選択中か調べる</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SetMenuloop.html">SetMenuloop</a></td>
+      <td>メニュー選択中を設定/解除する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/GetMenuLevel.html">GetMenuLevel</a></td>
+      <td>選択中のメニュー項目階層を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SetMenuLevel.html">SetMenuLevel</a></td>
+      <td>選択中のメニュー項目階層をインクリメント/デクリメントする</td>
+    </tr>
+    <tr>
+      <td><a href="Other/IsContextMenu.html">IsContextMenu</a></td>
+      <td>コンテキストメニュー選択中か調べる</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SetContextMenu.html">SetContextMenu</a></td>
+      <td>コンテキストメニュー選択中を設定/解除する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/GetMenuItemState.html">GetMenuItemState</a></td>
+      <td>メニュー項目の状態ガイド値を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/IsImeInput.html">IsImeInput</a></td>
+      <td>日本語変換入力中かどうか調べる</td>
+    </tr>
+    <tr>
+      <td><a href="Other/TsfAdvise.html">TsfAdvise</a></td>
+      <td>テキストサービスのアドバイズ/解除する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/TsfDisable.html">TsfDisable</a></td>
+      <td>プロセス内のテキストサービス処理を無効にする</td>
+    </tr>
+    <tr>
+      <td><a href="Other/EditKeyDown.html">EditKeyDown</a></td>
+      <td>AGSのEditコントロールキーダウン処理を行う</td>
+    </tr>
+    <tr>
+      <td><a href="Other/EditKeyUp.html">EditKeyUp</a></td>
+      <td>AGSのEditキーアップ処理を行う</td>
+    </tr>
+    <tr>
+      <td><a href="Other/EnableCheckChangeGuide.html">EnableCheckChangeGuide</a></td>
+      <td>チェックの変更時ガイドの有効/無効を切り替える</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SaveCheckState.html">SaveCheckState</a></td>
+      <td>チェック状態を保存する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/LoadCheckState.html">LoadCheckState</a></td>
+      <td>保存されているチェック状態を取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SaveTreeLevel.html">SaveTreeLevel</a></td>
+      <td>ツリー項目の階層レベルを保存する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/LoadTreeLevel.html">LoadTreeLevel</a></td>
+      <td>保存したツリー項目の階層レベルを取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/GetTreeSelItemLevel.html">GetTreeSelItemLevel</a></td>
+      <td>選択中のツリー項目の階層レベルを取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/IsSelectableCtrlKeyGuide.html">IsSelectableCtrlKeyGuide</a></td>
+      <td>選択型コントロールでキー操作音声ガイドしてよいかどうか</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SetSelectableCtrlKeyGuide.html">SetSelectableCtrlKeyGuide</a></td>
+      <td>
+        <p>選択型コントロールのキー操作音声ガイドをON/OFFする</p>
+      </td>
+    </tr>
+    <tr>
+      <td><a href="Other/LoadSelectableId.html">LoadSelectableId</a></td>
+      <td>保存されている選択コントロールのIdを取得する</td>
+    </tr>
+    <tr>
+      <td><a href="Other/DisableMouseMove.html">DisableMouseMove</a></td>
+      <td>次のマウスカーソル移動読みを無効にする</td>
+    </tr>
+    <tr>
+      <td><a href="Other/SetCursorPos.html">SetCursorPos</a></td>
+      <td>マウスカーソルを移動させる</td>
+    </tr>
+    <tr>
+      <td><a href="Other/ClearSubsKey.html">ClearSubsKey</a></td>
+      <td>代替キー情報をクリアする</td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Other/GetCapability.html">GetCapability</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">PCTalkerの機能フラグ(Office機能実行可能、限
+        定版など)を取得する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Other/GetNumpadMode.html">GetNumpadMode</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">PCTalkerのテンキーモードを取得する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Other/SendInput.html">SendInput</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">PCTalkerにキー入力を依頼する<br>
+      </td>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;" class="auto-style1"><a href="Other/GetPCTKWindow.html">GetPCTKWindow</a><br>
+      </td>
+      <td style="vertical-align: top;" class="auto-style1">PCTalkerにウインドウハンドルを取得する<br>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

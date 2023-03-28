@@ -1,0 +1,114 @@
+﻿<html>
+
+<head>
+  <title>EXCEL支援アドイン</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>EXCEL支援アドイン OaExcel </h1>
+  <h3>ファイル構成</h3>
+  <table class="enumdef">
+    <tr>
+      <td>defファイル</td>
+      <td>OwExcel.def</td>
+      <td>xxx\Program Files\KSD\OfficeWorks\DefFiles</td>
+    </tr>
+    <tr>
+      <td>アドインdll</td>
+      <td>OwExcel.dll</td>
+      <td>xxx\Program Files\KSD\OfficeWorks\ExFiles </td>
+    </tr>
+  </table>
+  <h3>EXCELのDOMへのアクセス</h3>
+  <p>EXCEL.EXEのタイプライブラリからMFCラッパークラスを作成する。</p>
+  <p>参照:<a href="rapperclass.html">ラッパークラスの作成方法</a>　<a href="rapperclass.html">EXCELにアタッチするサンプル</a></p>
+  <p>タイプライブラリ Microsoft Excel xx.x Object Library&lt;x.x&gt;</p>
+  <table class="enumdef">
+    <tr>
+      <td>_Application</td>
+      <td>EXCELアプリケーションオブジェクト</td>
+    </tr>
+    <tr>
+      <td>_Worksheet</td>
+      <td>ワークシートオブジェクト</td>
+    </tr>
+    <tr>
+      <td>_Range</td>
+      <td>Rangeオブジェクト</td>
+    </tr>
+  </table>
+  <h3>EXCELイベント処理</h3>
+  <p>EXCELのイベント発生時に音声出力や、音声出力のための制御をおこなう。</p>
+  <p>イベントはOLEViewerを使用して、IID、イベントID等を確認しイベントクラスを作成する。</p>
+  <p>参照:<a href="EventClass.html">イベントクラスの作成</a></p>
+  <table class="enumdef">
+    <tr>
+      <th colspan="2" class="rawheader">イベント</th>
+      <th class="rawheader">処理</th>
+    </tr>
+    <tr>
+      <td>NewWorkbook</td>
+      <td>ワークブックの新規作成</td>
+      <td>選択セル番地の保存</td>
+    </tr>
+    <tr>
+      <td>WorkbookActive</td>
+      <td>ワークブックアクティブ</td>
+      <td>アクティブになるワークブック名の音声出力<br>
+        選択セル番地の保存</td>
+    </tr>
+    <tr>
+      <td>SheetActive</td>
+      <td>シートアクティブ</td>
+      <td>Shift+Ctrl+PageUp、DOWN等でシートを切り替えた際のシート名音声出力<br>選択セル番地の保存
+    </tr>
+    <tr>
+      <td>SheetChange</td>
+      <td>シートの切り替え</td>
+      <td>切り替えられたシートのアクティブセルの音声<br>選択セル番地の保存</td>
+    </tr>
+    <tr>
+      <td>SheetSelectionChange</td>
+      <td>シート内の選択変更</td>
+      <td>選択セル番地の保存<br>選択セルの音声出力</td>
+    </tr>
+  </table>
+  <h3>アドイン独自機能</h3>
+  <table class="enumdef">
+    <tr>
+      <td>
+        <p>ピボットテーブルの読み上げ</p>
+      </td>
+      <td>見出しのドロップダウンボタンの読み上げ</td>
+    </tr>
+    <tr>
+      <td width="225">グラフの読み上げ</td>
+      <td width="514">
+        <p>グラフの見出しなど、簡単な説明読み上げ</p>
+      </td>
+    </tr>
+    <tr>
+      <td>列タイトル範囲の設定</td>
+      <td>JAWS=Alt+Control+Shft+c</td>
+    </tr>
+    <tr>
+      <td>行タイトル範囲の設定</td>
+      <td>JAWS=Alt+Control+Shft+r</td>
+    </tr>
+  </table>
+  <h3>音声出力やPCTalkerの設定取得等</h3>
+  <p><a href="../AGSAPI/AGSAPI.html">AGS API</a>を使用する </p>
+  <h3 class="otherinf">参考資料</h3>
+  <p>
+    <a href="http://excelvba.pc-users.net/">EXCEL VBA入門講座</a><br />
+    VBAの入門講座
+  </p>
+  <p>
+    <a href="ExcelTalker.xls">旧バージョンマクロ</a><br />
+    新しい機能を追加する場合や、インターフェイスがどのような役割を果たすかなど、まずは、VBAマクロでテストして正しく動作するかどうかチェックしてみるほうがはやい。
+  </p>
+</body>
+
+</html>

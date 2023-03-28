@@ -1,0 +1,35 @@
+﻿<html>
+
+<head>
+    <title>SetTouchSettings</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch::SetTouchSettings</h1>
+    <p>全てのタッチ感度の設定</p>
+    <pre><code>
+void <span class="fnname">CKSTouch::SetTouchSettings</span>( 
+        LPTOUCH_SETTINGS pTouchSettings
+)</code></pre>
+    <p>タッチジェスチャを検知する感度等の設定値をセットします。</p>
+    <p class="note">※この関数で設定する値は、KsTouchxx.dllを使用する全てのプログラムの共通設定値です。
+        <br />　変更すると全てのプログラムの感度が変更されます。</p>
+    <code>pTouchSettings</code>
+    <h2>引数</h2>
+    <p>設定値</p>
+    <pre><code>
+//	タッチ感度設定情報(全てのプロセスで共通)
+typedef struct{
+	UINT uTapIntervalMM;		//　タップ間隔(mmsec)
+	UINT uLongTapTimeMM;		//　ロングタップ時間(mmsec)
+	LONG nDriftMargin;		//　すべりマージン(mm*10)
+	LONG nFlickDistanceMin;		//　フリック最低移動距離(mm*10)
+	LONG nFlickCancelDistance;	//　フリックキャンセル距離感度(mm*10)
+	LONG nPressSliderDistance;	//　プレススライダーコントロール切替距離(mm*10)
+}TOUCH_SETTINGS,*LPTOUCH_SETTINGS;
+</code></pre>
+</body>
+
+</html>

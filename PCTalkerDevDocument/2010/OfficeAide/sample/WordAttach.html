@@ -1,0 +1,99 @@
+﻿<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+  <title>EXCELアタッチ</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>WORDにアタッチするサンプルプロジェクト</h1>
+  <p>WordAttach <a href="WordAttach.zip">プロジェクトをダウンロード</a></p>
+  <p>このプロジェクトは、WORDのイベントにフックし発生したイベントを表示、拡大/通常画面の切り替えを行うサンプルプログラムです。</p>
+  <ul>
+    <li>メニューの[操作]-[WORDイベントフック]を実行すると、起動中のWORDのイベントにフックします。イベントが発生すると、エディットコントロールに情報を出力します。</li>
+    <li>イベントフックを解除するには、メニューから[操作]-[WORDフック解除]を実行します。</li>
+    <li>メニューの[表示]-[拡大] または[表示]-[通常画面] で、起動中のWORDの拡大率を切り替えることができます。</li>
+  </ul>
+  <h5>メインプログラムソース</h5>
+  <table class="enumdef">
+    <tr>
+      <td>WordAttachDialog.cpp</td>
+      <td>メインダイアログソース</td>
+    </tr>
+    <tr>
+      <td>WordAttachDialog.h</td>
+      <td>メインダイアログヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordEventSink.h</td>
+      <td>WORDイベント同期クラスヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordEventSink.cpp</td>
+      <td>WORDイベント同期クラスソース</td>
+    </tr>
+    <tr>
+      <td>WordCtrl.h</td>
+      <td>WORD操作クラスヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordCtrl.cpp</td>
+      <td>WORD操作クラスソース</td>
+    </tr>
+    <tr>
+      <td>WordCtrlPropString.cpp</td>
+      <td>WORDのプロパティ値に対する文字列を定義したソース</td>
+    </tr>
+    <tr>
+      <td>WordAttach.h</td>
+      <td>プロジェクト作成時にVSが作成したヘッダ</td>
+    </tr>
+    <tr>
+      <td>WOrdAttach.cpp</td>
+      <td>プロジェクト作成時にVSが作成したソース</td>
+    </tr>
+    <tr>
+      <td>Resource.h</td>
+      <td>プロジェクト作成時にVSが作成したヘッダ</td>
+    </tr>
+    <tr>
+      <td>stdafx.h</td>
+      <td>プロジェクト作成時にVSが作成したヘッダ</td>
+    </tr>
+    <tr>
+      <td>targetver.h</td>
+      <td>プロジェクト作成時にVSが作成したヘッダ</td>
+    </tr>
+  </table>
+  <h5>基本クラスソース</h5>
+  <table class="enumdef">
+    <tr>
+      <td>WordSysDef.h</td>
+      <td>WORDのシステム定義値ヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordObject.h</td>
+      <td>タイプライブラリから作成されたクラスを含むヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordEvents.h</td>
+      <td>WORDイベント処理基本クラスヘッダ</td>
+    </tr>
+    <tr>
+      <td>WordEvents.cpp</td>
+      <td>WORDイベント処理基本クラスソース</td>
+    </tr>
+    <tr>
+      <td>EventDispatch.h</td>
+      <td>イベントディスパッチャラップクラスヘッダ(CWordEventsの派生元)</td>
+    </tr>
+    <tr>
+      <td>EventDispatch.cpp</td>
+      <td>イベントディスパッチャラップクラスソース(CWordEventsの派生元)</td>
+    </tr>
+  </table>
+</body>
+
+</html>

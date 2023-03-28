@@ -1,0 +1,197 @@
+﻿<html>
+
+<head>
+  <title>読み上げ禁止区分表</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+
+  <h1>読み上げ禁止区分表</h1>
+  <div class="function">
+    <pre><code>
+<a href="PCTKSetStatus.htm">PCTKSetStatus</a>( PS_APNOREAD,<読み上げ禁止区分>, nullptr );
+<a href="PCTKGetStatus.htm">PCTKGetStatus</a>( PS_APNOREAD,nullptr,nullptr )の戻り値
+</code></pre>
+
+    <div class="enumdef">
+      <table>
+        <tr>
+          <th class="rawtitle">値</th>
+          <th class="rawtitle">説明</th>
+        </tr>
+        <tr>
+          <td>NV_FOCUS<br>
+            0x0000ffff</td>
+          <td>フォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_EDIT<br>
+            0x00000001</td>
+          <td>エディット(Rich含む)フォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_PUSHBUTTON<br>
+            0x00000002</td>
+          <td>プッシュボタンフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_CHECKBOX<br>
+            0x00000004</td>
+          <td>チェックボックスフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_RADIOBUTTON<br>
+            0x00000008</td>
+          <td>ラジオボタンフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_HOTKEY<br>
+            0x00000010</td>
+          <td>ホットキーフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_COMBOBOX<br>
+            0x00000020</td>
+          <td>コンボボックスフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_LISTBOX<br>
+            0x00000040</td>
+          <td>リストボックスフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_TREEVIEW<br>
+            0x00000080</td>
+          <td>ツリービューフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_LISTVIEW<br>
+            0x00000100</td>
+          <td>リストビューフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_STATIC<br>
+            0x00000200</td>
+          <td>スタティックフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_TAB<br>
+            0x00000400</td>
+          <td>タブコントロールフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_TRACKBAR<br>
+            0x00000800</td>
+          <td>トラックバーフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE<br>
+            0x00ff0000</td>
+          <td>リスト系コントロール選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_COMBOBOX<br>
+            0x00010000</td>
+          <td>コンボボックス選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_LISTBOX<br>
+            0x00020000</td>
+          <td>リストボックス選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_TREEVIEW<br>
+            0x00040000</td>
+          <td>ツリービュー選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_LISTVIEW<br>
+            0x00080000</td>
+          <td>リストビュー選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_TAB<br>
+            0x00100000</td>
+          <td>タブコントロール選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_MOVE_TRACKBAR<br>
+            0x01000000</td>
+          <td>トラックバー移動読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_OPENCLOSE_COMBOBOX<br>
+            0x06000000</td>
+          <td>コンボボックスオープンクローズ時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_OPEN_COMBOBOX<br>
+            0x02000000</td>
+          <td>コンボボックスオープン時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_CLOSE_COMBOBOX<br>
+            0x04000000</td>
+          <td>コンボボックスクローズ時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_CHANGE_CHECKBOX<br>
+            0x08000000</td>
+          <td>チェックボックスON/OFF時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <th colspan="2" class="rawheader">以下は、PCTlaker Ver3.0以上</th>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_CALENDER<br>
+            0x00001000</td>
+          <td>カレンダーコントロールフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_FOCUS_DATECTRL<br>
+            0x00002000</td>
+          <td>日付コントロールフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_CALENDER<br>
+            0x00200000</td>
+          <td>カレンダーコントロール選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_SELCHANGE_DATECTRL<br>
+            0x00400000</td>
+          <td>日付コントロール選択時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_IMM_ONOFF<br>
+            0x10000000</td>
+          <td>日本語入力ON/OFF読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_IMM_INPUT<br>
+            0x20000000</td>
+          <td>日本語入力読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_IMM_MODECHANGE<br>
+            0x40000000</td>
+          <td>日本語入力モード切替読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_IMM_ALL<br>
+            0x70000000</td>
+          <td>日本語変換時の読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV_CHAR_INPUT<br>
+            0x80000000</td>
+          <td>文字(半角)入力読み上げ禁止</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

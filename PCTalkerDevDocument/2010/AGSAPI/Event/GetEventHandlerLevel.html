@@ -1,0 +1,31 @@
+﻿<html>
+
+<head>
+  <title>GetEventHandlerLevel</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>GetEventHandlerLevel</h1>
+  <p>イベントハンドラレベルの取得</p>
+  <pre><code>
+int <span class="fnname">GetEventHandlerLevel</span>(
+  HAGSHOOK aHookHandle
+)</code></pre>
+  <p>登録したイベントハンドラの優先順位(コールされる順番)を取得します。</p>
+  <p>この関数は、AddxxEventHandlerで登録されたイベントハンドラのコール順序を返します。</p>
+  <p>ChangeEventHandlerLevelをコールすると優先順位を変更することができます。</p>
+  <h2>引数</h2>
+  <code>aHookHandle</code>
+  <p>フックハンドル。AddEventHandler等の戻り値。</p>
+  <h2>戻り値</h2>
+  <p>コールバック関数が呼ばれる順番。0～(最優先～)</p>
+  <p class="otherinf">参照</p>
+  <p>
+    <a href="AddEventHandler.html">AddEventHandler</a><br>
+    <a href="ChangeEventHandlerLevel.html">ChangeEventHandlerLevel </a>
+  </p>
+</body>
+
+</html>

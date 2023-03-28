@@ -1,0 +1,111 @@
+﻿<html>
+
+<head>
+  <title>PCTKPReadEx</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1><a name="PCTKPRead">PCTKPRead</a></h1>
+    <p>文字列の読み上げ(優先レベル・構文解析・制御フラグ設定)</p>
+    <pre><code>
+void <span class="fnname">PCTKPReadEx</span>(
+    LPCTSTR str,
+    int priority,
+    BOOL analyze,
+    DWORD dwFlags
+)
+</code></Pre>
+    <h2>引数</h2>
+    <code>str</code>
+    <p>読み上げる文字列</p>
+    <code>priority</code>
+    <p><a href="DEFINE.html#Priority">優先レベル</a>。1～5の
+      値を設定することができます。数字が大きくなるほど、優先順位が高くなります。通常は、4を指定してください。</p>
+    <code>anaryze</code>
+    <p>構文解析。TRUEを設定するとPC-Talker独自の構文解析を行い、FALSEを設定すると音声Iエンジンに直接文字列を読み上げさせます。</p>
+    <code>dwFlags</code>
+    <p>以下の組み合わせを指定します。 <a href="DEFINE.html">参照:読み上げ制御フラグ</a></p>
+    <table class="enumdef">
+      <tbody>
+        <tr>
+          <td>PVOUT_NONE<br />0x00000000</td>
+          <td>指定なし</td>
+        </tr>
+        <tr>
+          <td>PVOUT_NOVLOG<br />
+            0x00000001</td>
+          <td>音声ログを取らない</td>
+        </tr>
+        <tr>
+          <td>PVOUT_NOPINDISPLAY<br />
+            0x00000002</td>
+          <td>ピンディスプレイ出力しない</td>
+        </tr>
+        <tr>
+          <th class="rawheader">VISTA以降新フラグ</th>
+        </tr>
+        <tr>
+          <td>PVOUT_JP_ENGINE<br />
+            0x00000004</td>
+          <td>日本語エンジンのみで出力</td>
+        </tr>
+        <tr>
+          <th class="rawheader">XP3以降、VISTA ver.xx以降</th>
+        </tr>
+        <tr>
+          <td>PVOUT_SUB_ENGINE<br>
+            0x00000010</td>
+          <td>サブエンジンで読み上げる</td>
+        </tr>
+        <tr>
+          <td>PVOUT_ANALYSIS<br>0x00000020</td>
+          <td>構文解析方法を指定する(<code>anaryze</code>で指定)</td>
+        </tr>
+        <tr>
+          <td>PVOUT_RPITCH_1 ～ PVOUT_RPITCH_9<br>
+            0x10000000 ～ 0x90000000</td>
+          <td>音声ピッチ1で出力～音声ピッチ9で出力</td>
+        </tr>
+        <tr>
+          <th class="rawheader">PCTalker 2010以降新フラグ</th>
+        </tr>
+        <tr>
+          <td>PVOUT_NEXTCONTINUE<br />
+            0x00000040</td>
+          <td>次の文字列を続けて出力する<br>
+          </td>
+        </tr>
+        <tr>
+          <td>PVOUT_NOBWKS<br />
+            0x00000008</td>
+          <td>ブレイルワークスでは表示しない（標準システムでは表示対象）</td>
+        </tr>
+        <tr>
+          <td>PVOUT_PINREQ<br />
+            0x00000100</td>
+          <td>ブレイルワークスでの表示を要求する</td>
+        </tr>
+        <tr>
+          <td>PVOUT_PINFLASH<br />
+            0x00000200</td>
+          <td>ブレイルワークスでの表示を要求する(フラッシュメッセージ)</td>
+        </tr>
+        <tr>
+          <th class="rawheader">PCTalker 2013以降新フラグ</th>
+        </tr>
+        <tr>
+          <td>PVOUT_BOOK_ENGINE<br />
+            0x00001000</td>
+          <td>読書読みエンジンで出力<br>
+          </td>
+        </tr>
+    </table>
+    <h2>解説</h2>
+    <p><code>str</code>で指定された文字列を、<code>priority</code>、<code>anaryze</code>で設定された読み方で読み上げます。</p>
+  </div>
+</body>
+
+</html>

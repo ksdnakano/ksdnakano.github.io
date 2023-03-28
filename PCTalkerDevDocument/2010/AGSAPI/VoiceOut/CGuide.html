@@ -1,0 +1,40 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>CGuide</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p class="title">１文字読み　CGuide</p>
+<strong>void CGuideA( const char* </strong><em>aReadText</em><strong>, int </strong><em>aMode</em><strong>, DWORD </strong><em>aFlags</em><strong> );</strong><br>
+<strong>void CGuideW( const wchar_t* </strong><em>aReadText</em><strong>, int </strong><em>aMode</em><strong>,DWORD </strong><em>aFlags</em><strong> );</strong>
+<p>文字列をカーソル文字読みの読み方で読み上げます。</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead"><em>aReadText</em></td>
+    <td valign="top">読み上げ文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aMode</em></td>
+    <td valign="top"><p>読み方モード</p>
+    <table border="1"><tr>
+      <td width="116" valign="top">HIWORD(aMode)</td>
+      <td width="248">0=カーソル文字の読み方で読み上げ<br>1=日本語変換の読み方で読み上げ</td>
+    </tr><tr>
+      <td>LOWORD(aMode)</td>
+    <td><a href="../../../PCTKUSR/DEFINE.html#CGuideMode">文字読み上げモード</a></td>
+    </tr></table></td>
+  </tr>
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aFlags</em></td>
+    <td width="536" valign="top"><a href="../../../PCTKUSR/DEFINE.html#ReadCtrl">読み上げ制御フラグの組み合わせ</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

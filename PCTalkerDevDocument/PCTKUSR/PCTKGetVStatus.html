@@ -1,0 +1,33 @@
+﻿<html>
+
+<head>
+  <title>PCTKGetVStatus</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1><a name="PCTKGetVStatus">PCTKGetVStatus</a></h1>
+    <p>音声発声状態の取得</p>
+    <pre><code>
+BOOL PCTKGetVStatus( void )
+</code></pre>
+    <h2>戻り値</h2>
+    <p>音声発声中であればTRUEを返し、発声中でなければ、FALSEを返します。</p>
+    <h2>解説</h2>
+    <p>音声の発声状態を返します。</p>
+    <br>
+    <p class="note">注意:</p>
+    PCTKGetVStatusは、SAPI音声エンジンにエラーが発生した場合もTRUEを返します。<br>
+    次のコードのような音声待ちループを書くと永久ループに陥る可能性があります。</p>
+    <pre><code>
+  while(PCTKGetVStatus()){
+    ;
+    ;
+  }</code></pre>
+    <p>安全のために、キーやマウス入力が発生した場合にループから抜ける処理、タイムアウト処理を書くことを推奨します。</p>
+  </div>
+</body>
+
+</html>

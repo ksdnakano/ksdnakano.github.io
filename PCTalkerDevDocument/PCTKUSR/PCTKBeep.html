@@ -1,0 +1,69 @@
+﻿<html>
+
+<head>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+  <title>PCTKBeep ビープ音を鳴らす</title>
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTKBeep</h1>
+    <p>ビープ音を鳴らす</p>
+    <pre><code>
+void <span class="fnname">PCTKBeep</span>( 
+  int BeepType=PCTK_BEEP1KHz,
+  UINT mmsec=15,
+  int MachinType=PCTK_MACHIN_AUTO
+);
+</code></pre>
+    <h2>引数</h2>
+    <code>BeepType</code>
+    <p>以下のビープ音の種類を指定します。</p>
+
+    <div class="enumdef">
+      <table>
+        <tr>
+          <td>PCTK_BEEP_500KHz<br>1</td>
+          <td>500KHzのビープ音</td>
+        </tr>
+        <tr>
+          <td>PCTK_BEEP_1KHz<br>2</td>
+          <td>1KHzのビープ音</td>
+        </tr>
+        <tr>
+          <td>PCTK_BEEP_2KHz<br>3</td>
+          <td>2KHzのビープ音</td>
+        </tr>
+      </table>
+      <code>mmsec</code>
+      <p>ビープ音の長さ(ミリ秒)を指定します。</p>
+
+      <code>MachinType</code>
+      <p>PCの機種を設定します。</p>
+      <p class="note">(注)PCTalkerのバージョンがVer.3.3以降であれば、この値は無視されます。PCTalker
+        Ver.3.3以降、ハードウエアビープからwavに変更されたため。</p>
+      <table>
+        <tr>
+          <td>PCTK_MACHIN_AUTO<br>0</td>
+          <td>自動判定</td>
+        </tr>
+        <tr>
+          <td>PCTK_MACHIN_NEC98<br>1</td>
+          <td>NEC98シリーズ</td>
+        </tr>
+        <tr>
+          <td>PCTK_MACHIN_DOSV<br>2</td>
+          <td>DOS/Vシリーズ</td>
+        </tr>
+      </table>
+      </td>
+      </tr>
+      </table>
+    </div>
+    <h2>解説</h2>
+    <p>ビープ音を鳴らします。(PCTalkerのバージョンが3.3より前であれば、このビープ音は、ハードウェアに依存します。)</p>
+  </div>
+</body>
+
+</html>

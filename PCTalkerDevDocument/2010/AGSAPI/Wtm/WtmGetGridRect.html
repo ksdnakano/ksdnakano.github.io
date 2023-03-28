@@ -1,0 +1,50 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>WtmGetGridRect</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">選択されている矩形座標の取得　WtmGetGridRect</p>
+<p><strong>BOOL WtmGetGridRect( HWND </strong><em>aWnd</em><strong> , RECT </strong><em>aRect</em><strong>,LPRECT</strong><em>aGridRect </em><strong>);</strong></p>
+<p>選択されている矩形座標を取得します。</p>
+<p><span class="subtitle"><img src="../image/wtmgrid.jpg" width="77" height="50"></span></p>
+<p>この関数をコールする前に、<a href="WtmProcessMonitor.html">WtmProcessMonitor</a>、または<a href="WtmWindowMonitor.html">WtmWindowMonitor</a>で描画の監視を開始しておく必要があります。</p>
+<p class="subtitle">&nbsp;</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aWnd</em><strong></strong></td>
+    <td width="536" valign="top">描画監視中のウインドウ</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aGridRect</em></td>
+    <td valign="top">選択されている矩形(ウインドウ左隅からの相対位置)</td>
+  </tr>
+</table>
+<p><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">BOOL</td>
+    <td width="533"><table>
+        <tr>
+          <td width="304"><strong>TRUE</strong>=成功</td>
+        <tr>
+          <td><strong>FALSE</strong>=失敗</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">&nbsp;</p>
+</body>
+</html>

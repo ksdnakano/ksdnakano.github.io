@@ -1,0 +1,37 @@
+﻿#pragma once
+#include "oaidl.h"
+
+class CEventDispatch : public IDispatch
+{
+private:
+	int			  m_refCount;
+	GUID		  m_guidEvents;
+	IConnectionPoint* mConnectPoint;
+	DWORD		  mCookie;
+
+public:
+	CEventDispatch( GUID aGuidEvents );
+	~CEventDispatch(void);
+
+ /***** IUnknown Methods *****/ 
+	STDMETHODIMP QueryInterface(REFIID riid, void ** ppvObj);
+	STDMETHODIMP_(ULONG) AddRef();
+	STDMETHODIMP_(ULONG) Release();
+
+   /***** IDispatch Methods *****/ 
+   STDMETHODIMP GetTypeInfoCount(UINT *iTInfo);
+   STDMETHODIMP GetTypeInfo(UINT iTInfo, LCID lcid, 
+      ITypeInfo **ppTInfo);
+   STDMETHODIMP GetIDsOfNames(REFIID riid,  
+      OLECHAR **rgszNames, 
+      UINT cNames,  LCID lcid,
+      DISPID *rgDispId);
+
+   virtual STDMETHODIMP Invoke(DISPID dispIdMember, REFIID riid, LCID lcid,
+      WORD wFlags, DISPPARAMS* pDispParams,
+      VARIANT* pVarResult, EXCEPINFO* pExcepInfo,
+      UINT* puArgErr);
+
+   HRESULT Advise( LPDISPATCH aDisp );
+	void Unadvise();
+};

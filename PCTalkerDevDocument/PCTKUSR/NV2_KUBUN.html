@@ -1,0 +1,90 @@
+﻿<html>
+
+<head>
+  <title>読み上げ禁止区分表</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1>読み上げ禁止区分表2</h1>
+    <span class="note">※PCTalker Ver.5以上</span>
+    <pre><code>
+<a href="PCTKSetStatus.html">PCTKSetStatus</a>( PS_APNOREAD2, <読み上げ禁止区分>,nullptr );
+<a href="PCTKGetStatus.html">PCTKGetStatus</a>( PS_APNOREAD2,nullptr,nullptr)の戻り値
+</code></pre>
+
+    <div class="enumdef">
+      <table>
+        <tr>
+          <th class="rawtitle">値</th>
+          <th class="rawtitle">説明</th>
+        </tr>
+        <tr>
+          <td>NV2_MENUSELECT<br>
+            0x00000001</td>
+          <td>メニュー選択時、読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_MENUCLOSE<br>
+            0x00000002</td>
+          <td>メニュークローズ時、読み上げ禁止 </td>
+        </tr>
+        <tr>
+          <td>NV2_WINACTIVATE<br>
+            0x00000004</td>
+          <td>ウィンドウアクティブ時、読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_WINCREATE<br>
+            0x00000008</td>
+          <td>ウィンドウ作成時、読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_WINCLOSE<br>
+            0x00000010</td>
+          <td>ウィンドウクローズ時、読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_EDITMOVECUR<br>
+            0x00000020</td>
+          <td>エディットカーソル移動時、読み上げ禁止</td>
+        </tr>
+        <tr>
+          <th colspan="2" class="rawheader">PCTalker XP3、VISTA以上</th>
+        </tr>
+        <tr>
+          <td>NV2_MENUOPEN<br>
+            0x00000040</td>
+          <td>メニューオープン時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_OPENMESSAGEBOX<br>
+            0x00000080</td>
+          <td>メッセージボックスのガイド時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_WNDLONG_VALUE<br>
+            0x00010000</td>
+          <td>ウィンドウに関連付けられたアプリケーション定義の 32 ビット値を<a href="NV_KUBUN.htm">NV_APNOREADフラグ</a>とする</td>
+        </tr>
+        <tr>
+          <th colspan="2" class="rawheader">PCTalker XP3、VISTA 2007/10/17版以上</td>
+        </tr>
+        <tr>
+          <td>NV2_IEFOCUSMOVE<br>
+            0x00000100</td>
+          <td>IEコントロールフォーカス設定時読み上げ禁止</td>
+        </tr>
+        <tr>
+          <td>NV2_ACRFOCUSMOVE<br>
+            0x00000200</td>
+          <td>AcrobatReaderコントロール選択時読み上げ禁止</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

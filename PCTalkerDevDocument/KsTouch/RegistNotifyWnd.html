@@ -1,0 +1,34 @@
+﻿<html>
+
+<head>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+    <title>RegistNotifyWnd</title>
+</head>
+
+<body class="function">
+    <h1>CKSTouch::RegistNotifyWnd</h1>
+    <p>タッチジェスチャ通知ウインドウの登録</p>
+    <pre><code>
+DWORD <span class="fnname">CKSTouch::RegistNotifyWnd</span>(
+    HWND aWnd,
+    UINT aMessageNo,
+    DWORD aDisableAction=0,
+    LPRECT aTouchRange=nullptr
+)</code></pre>
+    <p>タッチジェスチャを通知するウインドウを設定する。</p>
+    <p>通知メッセージを受け取ったウインドウが、メッセージの戻り値にFALSEを返すとPCTalkerはタッチジェスチャを処理しません。<br />TRUE=を返すとPCTalkerはタッチを処理します。</p>
+    <h2>引数</h2>
+    <code>aWnd</code>
+    <p>ジェスチャを通知するウインドウ</p>
+    <code>aMessageNo</code>
+    <p>通知メッセージ番号</p>
+    <code>aDisableAction</code>
+    <p><a href="notify.html#action">無効なジェスチャ</a>。(TA_ACT_xxxの組み合わせ)</p>
+    <code>aTouchRange</code>
+    <p>タッチを検出する有効矩形範囲。 NULLであれば、画面全てを有効とする。</p>
+    <h2>戻り値</h2>
+    <p>タッチID</p>
+</body>
+
+</html>

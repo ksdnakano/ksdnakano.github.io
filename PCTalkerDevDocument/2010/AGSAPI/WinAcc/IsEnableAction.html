@@ -1,0 +1,41 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>IsEnableAction</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p class="title">指定のガイド動作を実行できるか調べる　IsEnableAction</p>
+<p><strong>BOOL IsEnableAction( int <em>aAction</em> , AGS_CTRLTYPE<em>aCtrlType</em> );</strong></p>
+<p>コントロールがガイド動作を実行できるかどうか調べます。</p>
+<p>この関数は、PCTKUSR.DLLなどでコントロールの動作が禁止されているかどうか調べることができます。</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aAction</em></td>
+    <td width="536" valign="top"><a href="../../../PCTKUSR/PS_APREAD_KUBUN.html">ガイド動作区分</a>(ACV_...:pctkusr.h)</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead">aCtrlType</td>
+    <td valign="top">音声を出力しようとしている<a href="../DEFINE.html">コントロールのタイプ</a>(AGSCTR_...:AgsTypes.h)</td>
+  </tr>
+</table>
+<p><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">BOOL</td>
+    <td width="533"><table>
+        <tr>
+          <td width="304">TRUE=実行できる</td>
+        <tr>
+          <td>FALSE=USR.DLLなどで実行を禁止されている</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">&nbsp;</p>
+</body>
+</html>

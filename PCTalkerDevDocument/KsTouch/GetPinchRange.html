@@ -1,0 +1,28 @@
+﻿<html>
+
+<head>
+    <title>GetPinchRange</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch::GetPinchRange</h1>
+    <p>ピンチアクションの有効伸縮率取得</p>
+    <pre><code>
+void <span class="fnname">CKSTouch::GetPinchRange</span>( 
+    DWORD aRegistId,
+    LONG&amp; aMinParsent,
+    LONG&amp; aMaxParsent
+)</code></pre>
+    <p>ピンチアクション時の、最少伸縮率と最大伸縮率を取得します。</p>
+    <h2>引数</h2>
+    <code>aRegistId</code>
+    <p>タッチID。RegistNotifyXXX関数で返された値。</p>
+    <code>aMinParsent</code>
+    <p>最少伸縮率(パーセント)。この値未満の数値は通知されません(デフォルト=0%)</p>
+    <code>aMaxParsent</code>
+    <p>最大伸縮率(パーセント)。この値より大きい数値は通知されません(デフォルト=1000%)</p>
+</body>
+
+</html>

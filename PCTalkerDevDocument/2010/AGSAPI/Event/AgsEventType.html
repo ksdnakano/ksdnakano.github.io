@@ -1,0 +1,177 @@
+﻿<html>
+
+<head>
+  <title>AGSEVENTTYPE</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>AGSイベント一覧　AGSEVENTTYPE</h1>
+  <p>AgsApi.h</p>
+  <table class="enumdef">
+    <tr>
+      <th class="rawtitle">フォーカスイベント</th>
+    </tr>
+    <tr>
+      <th class="rawtitle"></th>
+      <th class="rawtitle">aType</th>
+      <th class="rawtitle">aParam</th>
+    </tr>
+    <tr>
+      <td>WM_SETFOUCSイベント</td>
+      <td>AGSEVENTTYPE_MSGSETFOCUS</td>
+      <td>LPAGSMSGFOCUSEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>WM_KILLFOCUS</td>
+      <td>AGSEVENTTYPE_MSGKILLFOCUS</td>
+      <td>HWND</td>
+    </tr>
+    <tr>
+      <td>MSAAのEVENT_OBJECT_FOCUSイベント</td>
+      <td>AGSEVENTTYPE_ACCOBJECTFOCUS</td>
+      <td>LPAGSACCEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>UIAutomationのFocusChangedイベント</td>
+      <td>AGSEVENTTYPE_UIAFOCUSCHANGED</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <th colspan="3" class="rawheader">キーボードイベント</strong></th>
+    </tr>
+    <tr>
+      <th class="rawtitle"></th>
+      <th class="rawtitle">aType</th>
+      <th class="rawtitle">aParam</th>
+    </tr>
+    <tr>
+      <td>キーフックのキー押下イベント</td>
+      <td>AGSEVENTTYPE_KEYDOWN_L</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>キーフックのキー押上イベント</td>
+      <td>AGSEVENTTYPE_KEYUP_L</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>低レベルキーフックのキー押下イベント</td>
+      <td>AGSEVENTTYPE_KEYDOWN_LL</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>低レベルキーフックのキー押上イベント</td>
+      <td>AGSEVENTTYPE_KEYUP_LL</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>WM_KEYDOWNメッセージイベント</td>
+      <td>AGSEVENTTYPE_KEYDOWN_MSG</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>WM_KEYUPメッセージイベント</td>
+      <td>AGSEVENTTYPE_KEYUP_MSG</td>
+      <td>LPAGSKEYEVENT_INFO</td>
+    </tr>
+    <tr>
+      <th colspan="3" class="rawheader">メッセージイベント</td>
+    </tr>
+    <tr>
+      <th class="rawtitle"></th>
+      <th class="rawtitle">aType</th>
+      <th class="rawtitle">aParam</th>
+    </tr>
+    <tr>
+      <td>SendMessage、PostMessageイベント</td>
+      <td>AGSEVENTTYPE_MESSAGE</td>
+      <td>LPAGSMESSAGE_INFO</td>
+    </tr>
+
+    <tr>
+      <th colspan="3" class="rawheader">その他イベント</th>
+    </tr>
+    <tr>
+      <th class="rawtitle"></th>
+      <th class="rawtitle">aType</th>
+      <th class="rawtitle">aParam</th>
+    </tr>
+    <tr>
+      <td>PCTalkerコマンド実行イベント</td>
+      <td>AGEVENTTYPE_PCTKCOMMAND</td>
+      <td><a href="../PCTKCOMMAND_NO.html">PCTKCOMMAND_NO</a></td>
+    </tr>
+    <tr>
+      <td>リスト系コントロール選択イベント</td>
+      <td>AGSEVENTTYPE_LISTSELECT</td>
+      <td>LPAGSLISTSELECT_INFO</td>
+    </tr>
+    <tr>
+      <td>キーエコーイベント</td>
+      <td>AGSEVENTTYPE_KEYECHO</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>ウインドウ作成イベント</td>
+      <td>AGSEVENTTYPE_WINCREATE</td>
+      <td>LPAGSWNDCREATE_INFO</td>
+    </tr>
+    <tr>
+      <td>ウインドウ破棄イベント</td>
+      <td>AGSEVENTTYPE_WINDESTROY</td>
+      <td>HWND</td>
+    </tr>
+    <tr>
+      <td>メッセージイベント</td>
+      <td>AGSEVENTTYPE_MESSAGE</td>
+      <td>LPAGSMESSAGE_INFO</td>
+    </tr>
+    <tr>
+      <td>メニューオープンイベント</td>
+      <td>AGSEVENTTYPE_ACCMENUOPEN</td>
+      <td>LPAGSACCEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>メニュークローズイベント</td>
+      <td>AGSEVENTTYPE_ACCMENUCLOSE</td>
+      <td>LPAGSACCEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>アクセシビリティイベント</td>
+      <td>AGSEVENTTYPE_ACCEVENT</td>
+      <td>LPAGSACCEVENT_INFO</td>
+    </tr>
+    <tr>
+      <td>リストコントロール問い合わせイベント</td>
+      <td>AGSEVENTTYPE_ACCISLIST</td>
+      <td>LPAGSACCISLIST_INFO</td>
+    </tr>
+    <tr>
+      <td>キー押下、押上時コマンド実行問い合わせイベント</td>
+      <td>AGSEVENTTYPE_QUERYEXECMDKEY</td>
+      <td>LPAGSQUERYEXECCMDKEY_INFO</td>
+    </tr>
+    <tr>
+      <td>音声ガイドロール属性値の初期化イベント</td>
+      <td>AGSEVENTTYPE_CLEARGUIDEROLE</td>
+      <td>NULL</td>
+    </tr>
+    <tr>
+      <td>クリップボード自動読み上げイベント</td>
+      <td>AGSEVENTTYPE_READAUTOCLIPBOARD</td>
+      <td>HWND</td>
+    </tr>
+  </table>
+  <p class="otherinf">参照</p>
+  <p>
+    <a href="AddEventHandler.html">AddEventHandler</a><br>
+    <a href="AddFocusEventHandler.UNKNOWN">AddFocusEventHandler</a><br>
+    <a href="AddKeyEventHandler.html">AddKeyEventHandler</a><br>
+    <a href="AddMessageEventHandler.UNKNOWN">AddMessageEventHandler</a><br>
+    <a href="AddAccEventHandler.UNKNOWN">AddAccEventHandler</a>
+  </p>
+</body>
+
+</html>

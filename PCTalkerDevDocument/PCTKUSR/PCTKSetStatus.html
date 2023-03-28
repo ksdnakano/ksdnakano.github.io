@@ -1,0 +1,131 @@
+﻿<html>
+
+<head>
+  <title>PCTKSetStatus</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+
+    <h1><a name="SetStatus">PCTKSetStatus</a></h1>
+    <p>PCTalker項目値設定</p>
+    <pre><code>
+DWORD <span class="fnname">PCTKSetStatus</span>(
+    UINT item, 
+    LPVOID param1,
+    LPVOID param2
+)
+</code></pre>
+    <h2>引数</h2>
+    <code>item</code>
+    <p>設定区分。下の表を参照してください。</p>
+    <code>param1</code>
+    <p>パラメータ。<code>item</code>に指定された値によって異なります。各設定区分の説明を参照してください。
+      <br>指定する値は、LPVOID型に型変換してください。</p>
+    <code>param2</code>
+    <p>パラメータ。<code>item</code>に指定された値によって異なります。各設定区分の説明を参照してください。
+      <br />指定する値は、LPVOID型に型変換してください。</p>
+    <br>
+    <table class="enumdef">
+      <thead>
+        <th class="rawtitle normtext">item (設定区分)</th>
+        <th class="rawtitle normtext">説明</th>
+        <th class="rawtitle normtext">param1(パラメータ１)</th>
+        <th class="rawtitle normtext">param2(パラメータ2)</th>
+        <th class="rawtitle normtext">適用範囲</th>
+      </thead>
+      <tr>
+        <td><a href="PS_STATUS.html">PS_STATUS</a><br>
+          0x00010001</td>
+        <td>PCTalkerの設定（ダイアログの項目値）を変更します。</td>
+        <td>PKDI_...<br>
+          <a href="PS_STATUSParam.html">区分表を参照</a></td>
+        <td>設定値<br>
+          <a href="PS_STATUSParam.html">区分表を参照</a></td>
+        <td>すべて</td>
+      </tr>
+      <tr>
+        <td><a href="PS_STATUS.html">PS_SETSTATUSNEXT</a><br>
+          0x00010002</td>
+        <td>PCTalkerの現在の設定（ダイアログの項目値）を次トグルします。</td>
+        <td>PKDI_...<br />
+          <a href="PS_STATUSParam.html">区分表を参照</a>
+        </td>
+        <td><a href="PS_STATUSParam.html">区分表を参照</a></td>
+        <td>すべて</td>
+      </tr>
+      <tr>
+        <td><a href="PS_STATUS.html">PS_SETSTATUSBACK</a><br />
+          0x00010003</td>
+        <td>PCTalkerの現在の設定（ダイアログの項目値）を前トグルします。</td>
+        <td>PKDI_...<br />
+          <a href="PS_STATUSParam.html">区分表を参照</a>
+        </td>
+        <td><a href="PS_STATUSParam.html">区分表を参照</a></td>
+        <td>すべて</td>
+      </tr>
+      <tr>
+        <td>PS_APNOACTION<br>
+          0x00020003</td>
+        <td>PCTalker動作(読み上げとコマンド）を一括して禁止、許可します。
+  </div>td>
+  <td>0=禁止<br />
+    1=許可
+  </td>
+  <td>NULL</td>
+  <td>設定アプリ</td>
+  </tr>
+  <tr>
+    <td>PS_APNOREAD<br>
+      0x00020002</td>
+    <td>PCTalkerの特定の読み上げ（フォーカス設定時など）を禁止します。</td>
+    <td><a href="NV_KUBUN.html">読み上げ禁止区分の組み合わせ</a></td>
+    <td>NULL</td>
+    <td>設定アプリ</td>
+  </tr>
+  <tr>
+    <td>PS_APNOREAD2<br>
+      0x00020005
+      <p class="note">※PC-Talker Ver.5.0以上</p>
+    </td>
+    <td>PCTalkerの特定の読み上げを禁止します。
+    </td>
+    <td><a href="NV2_KUBUN.html">読み上げ禁止区分の組み合わせ</a></td>
+    <td>NULL</td>
+    <td>設定アプリ</td>
+  </tr>
+  <tr>
+    <td><a href="PS_APREAD.html">PS_APREADCALLBACK</a><br>
+      0x00020001</td>
+    <td>PCTalker読み上げ時のコールバック関数を設定し、特定の読み上げに独自処理を組み込んだり、PCTalkerの読み上げを禁止します。</td>
+    <td>コールバック関数のアドレス</td>
+    <td>NULL</td>
+    <td>設定アプリ</td>
+  </tr>
+  <tr>
+    <td><a href="PS_APSCUTCALLBACK.html">PS_APSCUTCALLBACK</a><br>
+      0x00020004</td>
+    <td>ショートカットコマンドのコールバック関数を設定し、特定のコマンドに独自処理を組み込んだり、ショートカットコマンドを禁止します。</td>
+    <td>コールバック関数のアドレス</td>
+    <td>NULL</td>
+    <td>設定アプリ</td>
+  </tr>
+  <tr>
+    <td><a href="PS_TOUCHCALLBACK.html">PS_TOUCHCALLBACK</a><br />
+      0x00020006<br /><span class="note">PCTalker 8 Ver.2.12以上</span></td>
+    <td>タッチジェスチャーのコールバック関数を設定し、特定のジェスチャーに独自処理を組み込んだり、タッチコマンドを禁止します。</td>
+    <td>コールバック関数のアドレス</td>
+    <td>NULL</td>
+    <td>設定アプリ</td>
+  </tr>
+  </table>
+  <h2>戻り値</h2>
+  <p>前回、設定された値</p>
+  <h2>解説</h2>
+  <p>PCTalkerの各設定項目値を設定します。</p>
+  <blockquote>&nbsp;</blockquote>
+</body>
+
+</html>

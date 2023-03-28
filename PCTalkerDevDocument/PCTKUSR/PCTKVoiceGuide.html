@@ -1,0 +1,45 @@
+﻿<html>
+
+<head>
+  <title>PCTKVoiceGuide</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1 name="PCTKVoiceGuide">PCTKVoiceGuide</h1>
+    <p>文字列の読み上げ</p>
+    <pre><code>
+void <span class="fnname">PCTKVoiceGuide</span>( 
+      LPCTSTR string,
+      int quick=QUICK_NONE 
+);</code>
+</pre>
+    <h2>引数</h2>
+    <code>string</code>
+    <p>読み上げる文字列</p>
+    <code>quick</code>
+    <p>クィックフラグ。以下の値を設定することができます。</p>
+    <div class="enumdef">
+      <table>
+        <tr>
+          <th>PCTKQUICK_NONE</th>
+          <td>PCTalkerの設定値に任せます。</td>
+        </tr>
+        <tr>
+          <th>PCTKQUICK_OFF</th>
+          <td>文字列を完全に読み上げます。</td>
+        </tr>
+        <tr>
+          <th>PCTKQUICK_ON</th>
+          <td>読み上げ途中に、別の音声を読み上げることになった場合、途中で音声を切ります。</td>
+        </tr>
+      </table>
+    </div>
+    <h2>解説</h2>
+    <p>strで指定された文字列をなめらか読みで読み上げます。</p>
+  </div>
+</body>
+
+</html>

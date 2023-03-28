@@ -1,0 +1,42 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>SetKeyVoiceStop</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .auto-style1
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            line-height: 24px;
+            background-color: #99FFCC;
+            color: #003399;
+            height: 93px;
+        }
+        .auto-style2
+        {
+            height: 93px;
+        }
+    </style>
+</head>
+
+<body>
+<p class="title">キーの押下で音声を中断する/しないを設定　SetKeyVoiceStop</p>
+<strong>void SetKeyVoiceStop( BOOL</strong><em> bReset</em><strong> );</strong><br>
+キーボードが押されたときの音声中断処理を行うかどうか設定します。<br />
+音声中断を停止させた後１回目のみ有効で、次からは再び、キーボードが押されるたびに音声中断処理を行います。
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="auto-style1"><em>bReset</em></td>
+    <td width="536" valign="top" class="auto-style2"><b>TRUE=</b>音声を中断する(デフォルト)<br />
+        <b>FALSE=</b>次のキー押下で音声を中断させない</p>
+    </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

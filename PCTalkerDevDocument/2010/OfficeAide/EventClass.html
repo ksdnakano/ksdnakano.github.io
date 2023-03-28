@@ -1,0 +1,134 @@
+﻿<html>
+
+<head>
+  <title>イベントクラスの作成</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>イベントクラスの作成</h1>
+  <p>EXCELのIAppEventsをラップするクラスを作成する例</p>
+  <ol>
+    <li>
+      <p>Visual Sutdioツールの<code>OLE Viewer(OleView.Exe)</code>を起動する</p>
+      <p>VS8のOLEViewerのパス:C:\Program Files\Microsoft Visual Studio 8\Common7\Tools\Bin\OleView.Exe</p>
+    </li>
+    <li>
+      <p>イベントインターフェイスを含むタイプライブラリを選択し、<code>ITypeLibViewer</code>を起動する</p>
+      <p>トップ項目[Type Libraies ]から[Microsoft Excel XX.X Object Library ...]を ダブルクリックし、ITypeLib Viewerを起動する</p>
+      <img src="image/oleview2.jpg">
+    </li>
+    <li>
+      <p>目的のイベントインターフェイスを探す。</p>
+      <p class="note">※インターフェイスの内容をクリップボードにコピーし、エディタに貼り付けたほうが探しやすいかも</p>
+      <p><img src="image/oleview3.jpg" width="493" height="290"></p>
+    </li>
+    <li>
+      <p>ヘッダファイルを作成し、インターフェイスIDを定義する</p>
+      <p>インターフェイスIIDの定義部分</p>
+      <img src="image/oleview4.jpg">
+      <p>ExcelEvent.h</p>
+      <pre><code>
+const IID IID_ExcelAppEvents  = {0x00024413,0x0000,0x0000,{0xc0,0x00,0x00,0x00,0x00,0x00,0x00,0x46}};</code></pre>
+    <li>
+      <p>ヘッダファイルにイベントIDを定義する</p>
+      <img src="image/oleview5.jpg">
+      <p>ExcelEvent.h</p>
+      <pre><code>
+const IID IID_ExcelAppEvents  = {0x00024413,0x0000,0x0000,{0xc0,0x00,0x00,0x00,0x00,0x00,0x00,0x46}};
+
+enum DISPID_EXCELAPP_EVENTS{<br>	DISPID_NEWWORKBOOK = 0x0000061d
+  DISP_ID_SHEETSELECTIONCHANGE = 0x00000616<br>};
+</code></pre>
+    </li>
+    <li>
+      <p><code>IDispatchクラス</code>から派生したイベントクラスを作成する</p>
+      <p>イベントクラスには、以下の関数を必ずオーバーライドする</p>
+      <ul>
+        <li>QueryInterface</li>
+        <li>AddRef</li>
+        <li>Release</li>
+        <li>GetTypeInfoCount</li>
+        <li>GetTypeInfo</li>
+        <li>GetIDsOfNames</li>
+        <li>Invoke</li>
+      </ul>
+      <h5>イベントクラスのサンプルコード </h5>
+      <table class="enumdef">
+        <tr>
+          <td><a href="sample/EventDispatch.h.txt">CEventDispatch.h</a></td>
+          <td>イベント共通基本クラスヘッダ</td>
+        </tr>
+        <tr>
+          <td><a href="sample/ExcelEvents.cpp">CEventDispatch.cpp</a></td>
+          <td>イベント共通基本クラスソース</td>
+        </tr>
+        <tr>
+          <td><a href="sample/ExcelEvents.h.txt">ExcelEvent.h</a></td>
+          <td>EXCELイベントクラスヘッダ</td>
+        </tr>
+        <tr>
+          <td><a href="sample/ExcelEvents.cpp">ExcelEvent.cpp</a></td>
+          <td>EXCELイベントクラスソース</td>
+        </tr>
+      </table>
+    </li>
+    <li>
+      <p>イベントに接続する</p>
+      <h5>イベントに接続するには</h5>
+      <ol>
+        <li><code>IConnectionPointContainer</code>をクエリし、<code>IConnectionPointContainer</code>インターフェイスを取得する</li>
+        <li>取得した<code>IConnectionPointContainer</code>インターフェイスの<code>FindConnectionPoint</code>を呼び出し、コネクションポイントを取得する
+        </li>
+        <li>取得した</code>IConnectionPointのAdvise</code>を呼び出し、イベントに接続する</li>
+      </ol>
+      <p>参照:<a href="sample/ExcelEvents.cpp">CEventDispatch.cpp</a>のAdvise関数</p>
+      <pre><code>
+DWORD mCookie;
+IConnectionPoint* mConnectPoinst = NULL;
+	.
+	.
+	.
+bool ExcelEventAdvise( IDispatch* IAppExcel,CExcelEvents* pExcelEvents )
+{
+	// 1.コネクションポイントコンテナをクエリ
+	IConnectionPointContainer *pConnPtContainer;
+	if(!SUCCEEDE(IAppExcelts->QueryInterface( IID_IConnectionPointContainer,(void **)&pConnPtContainer )))
+		return ( false );
+		
+	bool bSuccess = false;
+	// 2.コネクションポイントの取得
+	if(SUCCEEDED(pConnPtContainer->FindConnectionPoint(m_guidEvents,&mConnectPoinst ))){
+		pExcelEvents->AddRef();
+		//	3. イベントに接続
+		if(SUCCEEDED(mConnectPoint->Advise( pExcelEvents,mCookie );
+			bSuccess = true;
+	}
+	pConnPtContainer->Release();
+	.
+	.
+	.
+	return	( bSuccess );
+}
+</code></pre>
+    </li>
+    <li>
+      <p>イベントの接続解除する</p>
+      <p><code>IConnectionPoint</code>の<code>Unadvise</code>を呼び出し、接続解除する</p>
+      <pre><code>
+void ExcelEventUnadvise()
+{
+	if( mConnectPoint ){
+		mConnectPoint->Unadvise( mCookie );
+		mCookie = 0;
+		mConnectPoint->Release();
+		mConnectPoint = NULL;
+	}
+}
+</code></pre>
+    </li>
+  </ol>
+</body>
+
+</html>

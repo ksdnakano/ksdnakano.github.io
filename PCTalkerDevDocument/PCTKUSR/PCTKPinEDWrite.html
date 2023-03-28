@@ -1,0 +1,72 @@
+﻿<html>
+
+<head>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+  <title>PCTKPinFocus</title>
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTKPinEDWrite</h1>
+    <p>ピンディスプレイへ編集行を表示</p>
+    <pre><code>
+BOOL <span class="fnname">PCTKPinEDWriteA</span>( 
+  const char* aString,
+  unsinged int aFlags,
+  int aStartChar,
+  int aEndChar,
+  int aLineNumber,
+  int aPageNumber,
+  unsigned int aAttributes
+ )
+BOOL <span class="fnname">PCTKPinEDWriteW</span>( 
+  const wchar_t* aString,
+  unsinged int aFlags,
+  int aStartChar,
+  int aEndChar,
+  int aLineNumber,
+  int aPageNumber,
+  unsigned int aAttributes
+)
+</code></pre>
+    <h2>引数</h2>
+    <code>aString</code>
+    <p>表示する編集１行の文字列</p>
+    <code>aFlags</code>
+    <p>文字列のデータ区分</p>
+    <table class="enumdef">
+      <tr>
+        <th>PPED_NABCC_DATA</th>
+        <td>aStringはNABCC行データ</td>
+      </tr>
+      <tr>
+        <th>PPED_CARET</th>
+        <td>aStringは通常の行文字列でaStartCharに指定した値はカーソル位置</td>
+      </tr>
+      <tr>
+        <th>PPED_RANGE</th>
+        <td>aStringは通常の行文字列でaStartCharからaEndCharを範囲選択中</td>
+      </tr>
+    </table>
+    <code>aStartChar</code>
+    <p>開始カーソル位置インデックス(0～)</p>
+    <code>aEndChar</code>
+    <p>終了カーソル位置インデックス(0～)</p>
+    <code>aLineNumber</code>
+    <p>カーソル位置の行番号(1～) <span class="note">※必須</span></p>
+    <code>aPageNumber</code>
+    <p>カーソル位置のページ番号(1～) <span class="note">※エディタのようにページが存在しない場合は0</span></p>
+    <code>aAttributes</code>
+    <p>カーソル位置のアトリビュート</p>
+    <br>
+    <h2>戻り値</h2>
+    <p>TRUE=成功</p>
+    <p>FALSE=失敗</p>
+    <h2>解説</h2>
+    <p>ピンディスプレイへ編集行文字列を表示します。</p>
+    <p class="note">※この関数呼び出しによる音声は出力しません。</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+﻿<html>
+
+<head>
+  <title>AddFocusEventHandler</a></title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>AddFocusEventHandler</h1>
+  <p>フォーカスイベントハンドラの登録</p>
+  <pre><code>
+  HAGSHOOK <span class="fnname">AddFocusEventHandler</span>( 
+        AGSFocusEventHandler aEventHandler 
+  )</code></pre>
+  <p>AGSのフォーカスイベントが発生した時に呼ばれる、コールバック関数を登録します。</p>
+  <p class="note">※コールバック関数は登録した順に呼び出されます。呼び出し順を変更するには<a
+      href="ChangeEventHandlerLevel.html">ChangeEventHandlerLevel</a>関数をコールします</p>
+  <h2>引 数</h2>
+  <code>aEventHandler</code>
+  <p>コールバック関数 </p>
+  <h2>戻り値</h2>
+  <code>HAGSHOOK</code>
+  <p>フックハンドル。イベントハンドラの登録解除(<a href="RemoveFocusEventHandler.html">RemoveFocusEventHandler</a>)に必要。</p>
+  <p class="otherinf">参照</p>
+  <p><a href="DefEvent.html">DefEvent</a><br>
+    <a href="RemoveFocusEventHandler.html">RemoveFocusEventHandler</a></p>
+  <br>
+  <hr>
+  <h1>イベントコールバック関数 </h1>
+  <pre><code>
+AGSEVENT_RET (CALLBACK *<span class="fnname">AGSFocusEventHandler</span>)( 
+AGSEVENTTYPE aEventType,
+INT_PTR aParam 
+)
+</code></pre>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>発生したイベントの種類が渡されます</p>
+  <p>イベントの種類</p>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTTYPE_MSGSETFOCUS</td>
+      <td>WM_SETFOCUS発生</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTTYPE_ACCOBJECTFOCUS</td>
+      <td>MSAAのフォーカスイベント発生</td>
+    </tr>
+  </table>
+  <code>aParam</code>
+  <p>イベントの付加情報</p>
+  <h4>aEventType=AGSEVENTTYPE_MSGSETFOCUSの場合</h4>
+  <pre><code>
+typedef struct{
+    HWND         hwndNewFocus;  //	フォーカスされたウインドウ
+    HWND         hwndOldFocus;  //	フォーカスを失ったウインドウ
+}*LPAGSMSGFOCUSEVENT_INFO;
+</code></pre>
+
+  <h4>aEventType=AGSEVENTTYPE_ACCOBJECTFOCUSの場合</h4>
+  <pre><code>
+typedef struct{
+  HWND         hwnd;    // フォーカスオブジェクトウインドウ
+  DWORD        ObjectId;// フォーカスオブジェクトID
+  DWORD        ChlidId; // 子ID
+  DWORD        type;    // フォーカスオブジェクトのコントロールID(AccObjectCore.h)
+  DWORD        EventTime;// イベント発生時間
+  DWORD        ProcessId;// プロセスID
+}*LPAGSACCFOCUSEVENT_INFO;
+</code></pre>
+  <h2>戻り値</strong></h2>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>以降の処理を中断する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_AGSNEXT</td>
+      <td>以降の処理を続行する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_APIPROC</td>
+      <td>AGS処理を中断する。次のコールバック関数がある場合はコールし、AGS処理は次のコールバック関数に任せる</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_STOPNEXTHOOK</td>
+      <td>次のコールバック関数をパスする。AGS処理は行う</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>前のコールバック関数の戻り値を採用する</td>
+    </tr>
+  </table>
+</body>
+
+</html>

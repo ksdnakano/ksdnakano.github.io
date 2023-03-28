@@ -1,0 +1,62 @@
+﻿<html>
+
+<head>
+  <title>PCTKGetStatus</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+
+  <hr>
+  <div class="function">
+
+    <h1>PCTKGetStatus</h1>
+    <p>PCTalker項目値取得</p>
+    <pre><code>
+DWORD <span class="fnname">PCTKGetStatus</span>( 
+  UINT item, 
+  LPVOID param1,
+  LPVOID param2
+)
+</code></pre>
+    <h2>引数</h2>
+    <code>item</code>
+    <p>取得区分</p>
+    <div class="enumdef">
+      <table>
+        <tr>
+          <td><span class="define">PS_SETSTATUS</span></td>
+          <td>PC-Talkerの設定値（ダイアログの項目値）を取得します。</td>
+        </tr>
+        <tr>
+          <td><span class="define">PS_APNOACTION</span></td>
+          <td>PC-Talker動作(読み上げ、コマンド）の禁止／許可設定を取得します。</td>
+        </tr>
+        <tr>
+          <td><span class="define">PS_APNOREAD</span></td>
+          <td>PC-Talkerの特定の読み上げ（フォーカス設定時など）を禁止設定を取得します。</td>
+        </tr>
+        <tr>
+          <td><span class="define">PS_APREADCALLBACK</span></td>
+          <td>PC-Talker読み上げ時のコールバック関数を取得します。</td>
+        </tr>
+        <tr>
+          <td><span class="define">PS_APSCUTCALLBACK</span></td>
+          <td>ショートカットコマンドのコールバック関数を取得します。</td>
+        </tr>
+      </table>
+      <code>param1</code>
+      <p>パラメータ。<code>item</code>に設定された値によって異なります。 </p>
+      <p>指定する値は、<b>LPVOID</b>型に型変換してください。</p>
+      <code>param2</code>
+      <p>パラメータ。<code>item</code>に設定された値によって異なります。
+      <p>指定する値は、<b>LPVOID</b>型に型変換してください。
+      <h2>戻り値</h2>
+      <p>取得値が返されます。この値は、<code>item</code>に指定された値によって異なります。
+      <h2>解説</h2>
+      <p>PCTalkerの各設定項目値を取得します。<a href="PCTKSetStatus.html">PCTKSetStatus関数</a>を参照してください。</p>
+    </div>
+</body>
+
+</html>

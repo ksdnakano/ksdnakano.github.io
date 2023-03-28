@@ -1,0 +1,45 @@
+﻿<html>
+
+<head>
+  <title>PCTKCommand</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTalkerコマンド実行</h1>
+    <pre><code>
+DWORD <span class="fnname">PCTKCommand</span>( 
+  LPCTSTR cmdstr,
+  LPVOID param1,
+  LPVOID param2
+);
+</code></pre>
+    <h2>引数</h2>
+    <code>cmdstr</code>
+    <p>実行するショートカットコマンドのコマンド文字列を指定します。コマンド文字列については、<a href="CMDSTRING.html">定義済みのコマンド文字列表</a>を参照してください。</p>
+    <code>param1</code>
+    <p>未使用。nullptrを指定します。</p>
+    <code>param2</code>
+    <p>未使用。nullptrを指定します。</p>
+
+    <h2>戻り値</h2>
+    <p>常に0が返されます。</p>
+
+    <h2>解説</h2>
+    <p>PCTalkerのショートカットコマンド等を実行させます。&nbsp; </p>
+    <br>
+    <b>サンプル</b>
+    <p>１行読みを実行します。</p>
+    <pre><code>
+    .
+    .
+    PCTKCommand( PCTKCMD_READCURLINE, NULL,NULL );  // １行読みの実行</td>
+    .
+    .
+  </code></pre>
+  </div>
+</body>
+
+</html>

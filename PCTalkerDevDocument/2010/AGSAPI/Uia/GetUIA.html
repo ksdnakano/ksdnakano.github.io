@@ -1,0 +1,28 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>GetUIA</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FFFF00}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">UIAutomationインターフェイスを取得する　GetUIA</p>
+<p><strong>LPVOID GetUIA();</strong></p>
+<p>PCTalkerが保持しているIUIAutomationインターフェイスを取得します。</p>
+<span class="style1">※この関数はWindows8以降でのみインターフェイスを返します。また、PCTalkerプロセス内のみ取得できます。</span>
+<p class="style1"><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead"><em>LPVOID</em></td>
+    <td width="533"> NULL=取得できない。<br />
+        NULL以外=IUIAutomation*(キャストして使用)</td>
+  </tr>
+</table>
+</body>
+</html>

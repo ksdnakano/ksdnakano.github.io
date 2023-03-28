@@ -1,0 +1,36 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>UiaEditSetFocus</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FFFF00}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">UIAutomation対応Editにフォーカスがセットされたことを通知する　UiaEditSetFocus</p>
+<strong>BOOL UiaEditSetFocus();</strong><br>
+<strong>BOOL UiaEditSetFocusW( LPCWSTR </strong><em>aLabel</em><strong> );</strong><p></p>
+<p>UIAutomation対応Editにフォーカスがセットされたことを通知します。<br />
+    以降UIA対応Editにフォーカスがあれば、<a href="UiaEditKillFocus.html">UiaEditKillFocus</a>がコールされるまでカーソル移動キーが押されるとUIAEdit処理をAGSが行います。
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead"><em>aLabel</em><strong> </strong></td>
+    <td valign="top">フォーカス時に音声出力するラベル文字列</td>
+  </tr>
+</table>
+<p class="style1"><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead"><em>BOOL</em></td>
+    <td width="533"><b>TRUE=</b>UIAEditとして認識<br />
+        <b>FALSE=</b>フォーカスがUIAEditではない</td>
+  </tr>
+</table>
+</body>
+</html>

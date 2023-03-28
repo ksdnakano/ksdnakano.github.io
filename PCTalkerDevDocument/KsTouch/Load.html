@@ -1,0 +1,26 @@
+﻿<html>
+
+<head>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+    <title>Load</title>
+</head>
+
+<body class="function">
+    <h1>CKSTouch::Load</h1>
+    <p>タッチライブラリのロード</p>
+    <pre><code>
+BOOL <span class="fnname">CKSTouch::Load</span>( 
+    LPCTSTR aDllPath=nullptr
+)</code></pre>
+    <p>タッチライブラリをロードします。</p>
+    <h2>引数</h2>
+    <code>aDllPath</code>
+    <p>タッチDLLをロードするディレクトリ。<br />
+        nullptrであれば、カレントディレクトリ -&gt; Program Files\Common Files\Ksdの順にロードされます。</p>
+    <h2>戻り値</h2>
+    TRUE=ロードに成功<br />
+    FALSE=失敗
+</body>
+
+</html>

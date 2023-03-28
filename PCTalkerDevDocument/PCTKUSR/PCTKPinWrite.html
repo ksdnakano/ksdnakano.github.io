@@ -1,0 +1,45 @@
+﻿<html>
+
+<head>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+  <title>PCTKPinWrite</title>
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTKPinWrite</h1>
+    <p>ピンディスプレイへ表示</p>
+    <pre><code>BOOL <span class="fnname">PCTKPinWriteA</span>( 
+  const char* aString,
+  unsinged int aInfoFlags,
+  int aSubInfo
+)
+BOOL <span class="fnname">PCTKPinWriteW</span>( 
+  const wchar_t* aString,
+  unsinged int aInfoFlags,
+  int aSubInfo
+)
+</code></pre>
+    </p>
+    <h2>引数</h2>
+    <code>aString</code>
+    <p>表示する文字列</p>
+    <code>aInfoFlags</code>
+    <p><a href="DEFINE.html#PPW_TYPES">表示詳細区分</a></p>
+    <code>aSubinfo</code>
+    <p>追加情報。<br>
+      aInfoFlagsがPPW_LI_TREEVIEWの場合、ツリービュー項目の階層レベルを指定します。</p>
+    </tr>
+    </table>
+    <br>
+    <h2>戻り値</h2>
+    <p>TRUE=成功</p>
+    <p>FALSE=失敗</p>
+    <h2>解説</h2>
+    <p>ピンディスプレイへ文字列を表示します。</p>
+    <p class="note">※この関数呼び出しによる音声は出力しません。</p>
+  </div>
+</body>
+
+</html>

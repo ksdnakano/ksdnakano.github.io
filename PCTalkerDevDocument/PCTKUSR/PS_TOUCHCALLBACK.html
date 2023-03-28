@@ -1,0 +1,116 @@
+﻿<html>
+
+<head>
+    <title>PC-Talkerタッチコールバック関数の登録・取得</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+    <div class="function">
+        <h1>PC-Talkerタッチコールバック関数の登録・解除</h1>
+        <p>PC-Talkerにコールバック関数を登録すると、タッチコマンド実行直前にコールバック関数がコールされます。コールバック関数を登録することにより、アプリケーションからタッチ操作実行の制御を行うことができます。</p>
+        <p class="note">注:コールバック関数は、登録したプロセス（アプリケーション）のコマンド実行時のみ有効です。</p>
+        <hr>
+        <h2>タッチコールバック関数の登録</h2>
+        <p>コールバック関数を登録、または解除するには、PCTKUSR.DLLの<span class="fnname">PCTKSetStatus</span>関数をコールします。</p>
+        <pre><code>
+DWORD <span class="fnname">PCTKSetStatus</span>(
+    UINT item,
+    LPVOID param1,
+    LPVOID param2 
+);
+</code></pre>
+        <h3>引数</h3>
+        <p><code>item</code></p>
+        <p><b>PS_TOUCHCALLBACK</b>を指定します。</p>
+        <p><code>param1</code></p>
+        <p>コールバック関数を登録する場合はコールバック関数のアドレスを、解除する場合はnullptrを指定します。</p>
+        <p><code>param2</code></p>
+        <p>使用しません。nullptrを指定します。</p>
+        <hr><br />
+        <h2>コールバック関数の型</h2>
+        <p>コールバック関数は、以下のように宣言してください。</p>
+        <pre><code>
+PCTKCALLBACK_RESULT CALLBACK <span class="fnname">PCTKTouchEventHandler</span>(
+        int aReserve,
+        LPPCTKTOUCHNOTIFYINFO aTouchInf
+);</code></pre>
+        <h3>引数</h3>
+        <p><code>aReserve</code></p>
+        <p>使用しません。</p>
+        <p><code>aTouchInf</code></p>
+        <p>タッチ情報ポインタ</p>
+        <div style="padding-left: 20px;">
+            <pre><code>
+    typedef struct{
+        HWND hWnd;        // イベントの発生したウインドウ
+        LPVOID pActInf;   // タッチアクション情報ポインタ(LPTOUCHACT_NOTIFYINFO型にキャストして使用 ヘッダ:kstouch.h)
+        BOOL IsHelpGuide; // ヘルプガイド中か wchar_t* pHelpGuideString; // ヘルプガイド文字列(※コールバックがセットする) 
+    }PCTKTOUCHNOTIFY_INFO,*LPPCTKTOUCHNOTIFYINFO;
+</code>
+</pre>
+        </div>
+        <h3>戻り値</h3>
+        <p><b>PCTKCALLBACK_STOP</b>=PC-Talkerはコマンドを実行しません。<br />
+            <b>PCTKCALLBACK_NEXT</b>=PC-Talkerはコマンドを実行します。
+        </p>
+        <hr>
+        <h2>サンプル</h2>
+        <p>コールバック関数を登録し、２本指の上下フリックコマンドを実行させない様にします。</p>
+        <pre><code>
+#include "pctkusr.h"
+#include "kstouch.h"
+    .
+    .
+    .
+static PCTKCALLBACK_RESULT CALLBACK TouchHandler( int aReserve,LPPCTKTOUCHNOTIFYINFO aTouchInf );
+//--------------------------------------------------------------------------------
+//      タッチコールバックの設定
+//--------------------------------------------------------------------------------
+void CDlgDlg::OnBnClickedButton1()
+{
+    PCTKSetStatus( PS_TOUCHCALLBACK,(LPVOID)TouchHandler,0 );
+}
+//--------------------------------------------------------------------------------
+//      タッチコールバックの解除
+//--------------------------------------------------------------------------------
+void CDlgDlg::OnBnClickedButton2()
+{
+    PCTKSetStatus( PS_TOUCHCALLBACK,0,0 );
+}
+//-----------------------------------------------------------------------------
+//          タッチコールバック関数
+// 
+//-----------------------------------------------------------------------------
+PCTKCALLBACK_RESULT CALLBACK TouchHandler( int aReserve,LPPCTKTOUCHNOTIFYINFO aTouchInf )
+{
+    //  アクションポインタをLPTOUCHACT_NOTIFYINFO型に変換
+    LPTOUCHACT_NOTIFYINFO pActInf = (LPTOUCHACT_NOTIFYINFO)aTouchInf->pActInf;
+
+    //  上フリック
+    if( pActInf->Action == TA_ACT_FLICKUP ){
+        // ２本指
+        if( pActInf->nFingerCount == 2 ){
+            //  メッセージボックスを表示させてPCTalkerのコマンドを実行させない
+            ::MessageBox( ::GetFocus(),L"-----FlickUp",L"Touch",MB_OK );
+            return	( PCTKCALLBACK_STOP );
+        }
+    }
+    //  下フリック
+    if( pActInf->Action == TA_ACT_FLICKDOWN ){
+        // ２本指
+        if( pActInf->nFingerCount == 2 ){
+            //  メッセージボックスを表示させてPCTalkerのコマンドを実行させない
+            ::MessageBox( ::GetFocus(),L"-----FlickDown",L"Touch",MB_OK );
+            return	( PCTKCALLBACK_STOP );
+        }
+    }
+    //  その他のジェスチャーはPCTalkerのコマンドを実行
+    return	( PCTKCALLBACK_NEXT );
+}
+</code></pre>
+    </div>
+</body>
+
+</html>

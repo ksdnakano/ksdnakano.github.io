@@ -1,0 +1,65 @@
+﻿<html>
+
+<head>
+  <title>オフィス対応アドインDLL</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>オフィス支援アドイン</h1>
+  <h3>アドインファイル構成</h3>
+  <p>オフィス支援アドインLは、各Office製品ごとにdefファイルとアドインdllのセットで作成する。</p>
+  <table class="enumdef">
+    <tr>
+      <th class="rawtitle">Office製品</th>
+      <th class="rawtitle">DEFファイル</th>
+      <th class="rawtitle">アドインDLL</th>
+    </tr>
+    <tr>
+      <td><a href="Word.html">WORD</a></td>
+      <td>winword.def</td>
+      <td>OwWord.dll</td>
+    </tr>
+    <tr>
+      <td><a href="Excel.html">EXCEL</a></td>
+      <td>excel.def</td>
+      <td>OwExcel.dll</td>
+    </tr>
+    <tr>
+      <td>Outlook</td>
+      <td>outlook.def</td>
+      <td>OwOutlook.dll</td>
+    </tr>
+    <tr>
+      <td>PowerPoint</td>
+      <td>powerpnt.def</td>
+      <td>OwPowerPnt.dll</td>
+    </tr>
+    <tr>
+      <td class="obsolete">Windowsメール</td>
+      <td class="obsolete">winmail.def</td>
+      <td class="obsolete">OwWinMail.dll</td>
+    </tr>
+    <tr>
+      <td class="obsolete">Outlook Express </td>
+      <td class="obsolete">?????</td>
+      <td class="obsolete">OaOlExpress.dll</td>
+    </tr>
+  </table>
+  <h3>アドインフォルダ</h3>
+  <table class="enumdef">
+    <tr>
+      <th>DEFファイルフォルダ</th>
+      <td>xxx\Program Files\KSD\OfficeWorks\DefFiles</td>
+    </tr>
+    <tr>
+      <th>アドインDLLフォルダ</th>
+      <td>xxx\Program Files\KSD\OfficeWorks\ExFiles</td>
+    </tr>
+  </table>
+  <h3>アドイン作成時の注意</h3>
+  <p>メニュー音声、リボン音声、ダイアログ音声は特に必要がない限り、アドインで処理しなくてもよい。(Ags.dllが音声出力を行うため)</p>
+</body>
+
+</html>

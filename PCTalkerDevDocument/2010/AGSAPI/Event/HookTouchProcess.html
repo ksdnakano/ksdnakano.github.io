@@ -1,0 +1,59 @@
+﻿<html>
+
+<head>
+  <title>HookTouchProcess</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>HookTouchProcess</h1>
+  <p>タッチイベントハンドラの登録</p>
+  <pre><code>
+BOOL <span class="fnname">HookTouchProcess</span>( 
+      AGSEventHandler aEventHandler
+)</code></pre>
+
+  <p>タッチイベントが発生した時に呼ばれる、コールバック関数を登録します。</p>
+  <h2>引数</h2>
+  <code>aEventHandler</code>
+  <p>コールバック関数</p>
+  <h2>戻り値</h2>
+  TRUE=成功　FALSE=失敗
+  <br>
+  <hr>
+  <h1>タッチイベントコールバック関数 </h1>
+  <pre><code>
+  AGSEVENT_RET (CALLBACK *<span class="fnname">AGSEventHandler</span>)(
+        AGSEVENTTYPE aEventType,
+        INT_PTR aParam
+    )</code></pre>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>AGSEVENTTYPE_TOUCHACTNOTIFYが設定されます。</p>
+  <code>aParam</code>
+  <p>タッチ情報が渡されます</p>
+  <pre><code>
+typedef struct{
+    HWND hWnd;	  	      	//	ウインドウ
+    LPTOUCHACT_NOTIFYINFO pTouchInf;	//	タッチ情報(KsTouch.h)
+    BOOL	IsHelpGuide;		//	ヘルプガイド中か
+    wchar_t* pHelpGuideString;		//	ヘルプガイド文字列(※アドインがセットする)
+ }*LPTOUCHNOTIFYINFO;</code></pre>
+
+  <h2>戻り値</strong></h2>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>PCTalker標準ののタッチ処理をしない</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>PCTalker標準のタッチ処理を行う</td>
+    </tr>
+  </table>
+  <p class="otherinf">参照</p>
+  <p><a href="UnhookTouchProcess.html">UnhookTouchProcess</a></p>
+</body>
+
+</html>

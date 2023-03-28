@@ -1,0 +1,85 @@
+﻿<html>
+
+<head>
+  <title>PCTKEventHook</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTKEventHook<span class="note">※廃止</span></h1>
+    <p>PCTalker読み上げフック設定と解除</p>
+    <pre><code>
+BOOL <span class="fnname">PCTKEventHook</span>( 
+  BOOL bKbn,
+  HWND hSendWnd,
+  UINT MessageNo )
+</code></pre>
+    <h2>引数</h2>
+    <code>bKbn</code>
+    <p>TRUE=フック設定　FALSE=フック解除</p>
+    <code>hSendWnd</code>
+    <p>イベント発生時にメッセージを送信されるウィンドウのウィンドウハンドル</p>
+    <code>MessageNo</code>
+    <p>イベント発生時の通知番号<br>bKbn=TRUEの場合のみ有効</p>
+    <h2>戻り値</h2>
+    <p>TRUE=成功　FALSE=失敗</p>
+    <h2>解説</strong></h2>
+    <p>PCTalker音声発生時に、メッセージが送られるウィンドウを設定する。</p>
+    <p>メッセージ送信時、PCTalkerは、WPARAMにイベントの種類(無効)、LPARAMに音声出力される文字列のポインタをセットする。
+      ただし、メッセージ受け取り時にLPARAMの文字列ポインタにアクセスできるのは、Win98系のOSのみ。 Win2000系OSでも、文字列を取得するには、マップファイルを使用し、以下のようなコードを書く。
+    <p>　</p>
+    <h3> サンプル</h3>
+    <p>ダイアログ初期化時にPCTalkerイベントフックを設定し、音声発生メッセージハンドラで、CString strに音声文字列を取得する。</p>
+    <p>ウィンドウ破棄時に、PCTalkerイベントフックを解除する</p>
+    <p>(PCTKEVENTINFO_MAPFILENAMEは、PCTKBASE.Hに定義されている)</p>
+    <pre><code>
+#define UM_PCTKEVENT　　(WM_USER+1)
+////////////////////////////////////////////////////////////////
+// 　　ダイアログの初期化
+////////////////////////////////////////////////////////////////
+BOOL CCommandTestDlg::OnInitDialog() </font></p>
+{
+  ・
+  ・
+  ・
+  PCTKEventHook( TRUE,m_hWnd,UM_PCTKEVENT );
+  return TRUE;
+}
+////////////////////////////////////////////////////////////////
+// 　　PCTalkerイベントハンドラ
+//　　　wParam イベントの種類
+//　　　lParam　音声文字列へのポインタ(ただし、Win98系OSのみ使用可)
+////////////////////////////////////////////////////////////////
+LRESULT CCommandTestDlg::OnPCTKEvent( WPARAM wParam,LPARAM lParam )
+{
+  HANDLE hFile;
+  CString str;
+  char* pVStr;
+
+  // PCTalker 音声文字列マップファイルオープン
+  if((hFile = OpenFileMapping( FILE_MAP_ALL_ACCESS
+      ,TRUE,PCTKEVENTINFO_MAPFILENAME ))){
+    // PCTalker音声文字列ポインタを取得する
+    if((pVStr = (char*)MapViewOfFile( hFile,FILE_MAP_ALL_ACCESS,0,0,0 
+        ))){
+      str = (char*)pVStr;
+    }
+    CloseHandle( hFile );
+  
+  }
+}
+////////////////////////////////////////////////////////////////
+// 　　ダイアログの破棄
+////////////////////////////////////////////////////////////////
+void CCommandTestDlg::OnDestroy()
+{
+  PCTKEventHook( FALSE,NULL,NULL );
+  CDialog::OnDestroy();
+}
+</code></pre>
+  </div>
+</body>
+
+</html>

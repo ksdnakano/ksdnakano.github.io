@@ -1,0 +1,59 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>VCGuideCharW</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">仮想カーソル１文字読み　VCGuideCharW</p>
+<strong>void VCGuideCharW( HWND</strong><em> aWnd</em><strong>,LPCWSTR </strong><em>aString</em><strong>,RECT </strong><em>aObjectRect</em><strong></strong><strong>, int </strong><em>aMode</em><strong>,DWORD </strong><em>aFlags</em><strong> );</strong>
+<p>文字列をカーソル文字読みの読み方で読み上げます。</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead">aWnd</td>
+    <td valign="top"><p>コントロールのウインドウハンドル</p>
+        <p>NULL=GetFocus</p></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aReadText</em></td>
+    <td valign="top">読み上げ文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aObjectRect</em></td>
+    <td valign="top">オブジェクト矩形<br>
+        <strong>NULL</strong>=以前に設定された矩形<br>
+        <span class="style1">※ここに指定された矩形が仮想カーソル移動時の注目枠として表示されます。</span>
+        </td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aMode</em></td>
+    <td valign="top"><p>読み方モード</p>
+    <table border="1"><tr>
+      <td width="116" valign="top">HIWORD(aMode)</td>
+      <td width="248">0=カーソル文字の読み方で読み上げ<br>1=日本語変換の読み方で読み上げ</td>
+    </tr><tr>
+      <td>LOWORD(aMode)</td>
+    <td><a href="../../../PCTKUSR/DEFINE.html#CGuideMode">文字読み上げモード</a></td>
+    </tr></table></td>
+  </tr>
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aFlags</em></td>
+    <td width="536" valign="top"><a href="../../../PCTKUSR/DEFINE.html#ReadCtrl">読み上げ制御フラグの組み合わせ</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

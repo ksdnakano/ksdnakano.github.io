@@ -1,0 +1,53 @@
+﻿<html>
+
+<head>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+  <title>PCTKPinFocus</title>
+</head>
+
+<body>
+  <div class="function">
+    <h1>PCTKPinFocus</h1>
+    <p>フォーカスインしたウインドウ設定</p>
+    <pre><code>
+BOOL <span class="fnname">PCTKPinFocusA</span>( 
+  HWND aWnd,
+  const char_t* aLabelString,
+  uinsinged int aCtrlStyle,
+  FARPROC aNotifyCallback,
+  LONG_PTR aUserParam
+)
+ BOOL <span class="fnname">PCTKPinFocusW</span>(
+  HWND aWnd,
+  wchar_t* aLabelString,
+  uinsinged int aCtrlStyle,
+  FARPROC aNotifyCallback,
+  LONG_PTR aUserParam
+)
+</code></pre>
+    <h2>引数</h2>
+    <code>aWnd</code>
+    <p>ウインドウハンドル</p>
+    <code>aLabelString</code>
+    <p>コントロールのラベル文字列(タイトル)</p>
+    <code>aCtrlStyle</code>
+    <p><a href="DEFINE.html#PPF_TYPES">コントロールの種類とスタイルの組み合わせ</a>を指定します。</p>
+    <code>aNotifyCallback</code>
+    <p><a href="PinNotifyProc.html">ピンディスプレイからの通知を受け取るコールバック関数</a></p>
+    <code>aUserParam</code>
+    <p>任意の値。コールバック関数に渡されます。</p>
+    <h2>戻り値</h2>
+    <p>TRUE=成功</p>
+    <p>FALSE=失敗</p>
+    </tr>
+    </table>
+    <h2>解説</h2>
+    <p>カスタムコントロール等をピンディスプレイ対応するために、フォーカスされたときに、ピンディスプレイに登録します。 </p>
+    <p><code>aNotifyCallback</code>にコールバック関数を渡すと、ピンディスプレイからのコマンド要求通知を受け取ることができます。</p>
+    <p class="note">※この関数呼び出し以降、PCTKPReadやPCTKPReadEx、PCTKVoiceGuideでは、ピンディスプレイ表示されなくなります。<br>
+      ピンディスプレイ出力を行うには、PCTKPinEDWrite、またはPCTKPinWriteをコールします。</p>
+  </div>
+</body>
+
+</html>

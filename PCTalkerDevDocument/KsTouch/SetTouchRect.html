@@ -1,0 +1,30 @@
+﻿<html>
+
+<head>
+    <title>SetTouchRect</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch::SetTouchRect</h1>
+    <p>タッチ検出矩形の設定</p>
+    <pre><code>
+BOOL <span class="fnname">CKSTouch::SetTouchRect</span>(
+    DWORD RegistId,
+    LPRECT aRect
+)</code></pre>
+    <p>タッチジェスチャを検出する矩形を設定します。</p>
+    <code>aRegistId</code>
+    <p>タッチID。RegistNotifyXXX関数で返された値。</p>
+    <code>aRect</code>
+    <p>検出する矩形。</p>
+    <p><code>nullptr</code>または、left=right かつ top=bottomであれば、画面上の全領域を検出します。<br />
+        left≠right かつ top=bottomであれば、 指定された左右座標内の上から下までの画面領域を検出範囲とします。<br />
+        top≠bttomかつleft=rightであれば、指定された上下座標内の左端から右端までの画面領域を検出範囲とします。</p>
+    <h2>戻り値</h2>
+    <p>TRUE=成功<br />
+        FALSE=失敗</p>
+</body>
+
+</html>

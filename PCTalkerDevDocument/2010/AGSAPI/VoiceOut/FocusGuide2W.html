@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>FocusGuide2W</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {color: #FF0000}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">PCTalker対応コントロールのフォーカス音声ガイド出力　FocusGuide2W</p>
+<p><strong>void FocusGuide2W( HWND <em>aWnd,</em>DWORD <em>aCtrlId</em>,DWORD </strong><em>aState</em><strong>,const wchar_t* </strong><em>aLabelText</em><strong>,const wchar_t* </strong><em>aValueText</em><strong>, DWORD* </strong><em>aGuides</em><strong><em>, </em>int </strong><em>aGuideCount </em><strong> ,BOOL </strong><em>aNextContinue</em><strong> );</strong></p>
+<p>PCTalkerが対応しているコントロールのフォーカス音声を出力します。</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead">aWnd</td>
+    <td valign="top">コントロールのウインドウハンドル</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aCtrlId</em></td>
+    <td valign="top">コントロールID <a href="../DEFINE.html#VR_CTRL">参照:音声ID</a></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead">aState</td>
+    <td valign="top">コントロールの状態(通常0)</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead">aLabelText</td>
+    <td valign="top">ラベル文字列</td>
+  </tr>
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aValueText</em> </td>
+    <td width="536" valign="top">値文字列<span class="style1">(Listの項目文字列、Editの内容など)</span></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aGuides</em></td>
+    <td valign="top">付加するガイド値</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aGuideCount</em></td>
+    <td valign="top">付加するガイドの数</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead">aNextContinue</td>
+    <td valign="top"><strong>TRUE</strong>=続けて音声出力する <strong>FALSE</strong>=音声出力を終了する </td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p class="subtitle">参照</p>
+<table width="665" border="1" cellpadding="1" cellspacing="0">
+  <tr>
+    <td width="533"><a href="../FocusCtrlGuide.html">フォーカスコントロールの音声ガイド</a></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

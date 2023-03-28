@@ -1,0 +1,51 @@
+﻿<html>
+
+<head>
+  <title>タイプライブラリからラッパークラスの作成</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>タイプライブラリからラッパークラスの作成方法</h1>
+  <ol>
+    <li>
+      <p>ソリューションエクスプローラーからクラスの作成を実行する</p>
+      <img src="image/rapper1.jpg">
+    </li>
+    <li>
+      <p>[クラスの追加]で[MFC]-[TypeLibraryからのMFCクラス]を選択し、[追加ボタン]を押す</p>
+      <img src="image/rapper2.jpg">
+    </li>
+    <li>
+      <p>3. クラスを追加する</span></p>
+      <img src="image/rapper3.jpg">
+      <div>
+        <pre>
+①タイプライブラリを選択する
+②インターフェイスを選択する
+③生成ボタンを押す
+④クラス名を変更する(<span class="note">※ダブりやすい名前のため必須</span>)
+⑤ヘッダ名を変更する(<span class="note">※ダブりやすい名前のため必須</span>)
+⑥完了ボタンを押す</pre>
+      </div>
+    </li>
+    <li>
+      <p>ヘッダファイルから#import行を削除する</p>
+      <p class="note">※VS2005以降、コンパイルでエラーがでるため</p>
+      <pre><code>
+// [Typelib クラス追加ウィザード] で作成された IDispatch ラッパー クラスを生成しました。
+// 　#import C:\\Program Files\\Microsoft Office\\Office12\\EXCEL.EXE no_namespace
+
+// CExcelApp ラッパー クラス
+#pragma once
+class CExcelApp : public COleDispatchDriver
+{
+public:
+  CExcelApp(){} // COleDispatchDriver 既定のコンストラクタを呼び出します。
+  CExcelApp(LPDISPATCH pDispatch) : COleDispatchDriver(pDispatch) {}</code></pre>
+    </li>
+  </ol>
+</body>
+
+</html>

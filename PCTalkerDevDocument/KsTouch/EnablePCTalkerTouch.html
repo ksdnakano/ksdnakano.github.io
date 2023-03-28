@@ -1,0 +1,26 @@
+﻿<html>
+
+<head>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+    <title>EnablePCTalkerTouch</title>
+</head>
+
+<body class="function">
+    <h1>CKSTouch::EnablePCTalkerTouch</h1>
+    <p>タッチ処理の有効無効切り替え</p>
+    <pre><code>
+void <span class="fnname">CKSTouch::EnablePCTalkerTouch</span>( 
+     BOOL aEnable
+)</code></pre>
+    <p>PCTalkerのタッチ処理の有効/無効を切り替えます。(プロセスごと)</p>
+    <p class="note">※アプリは、PCTalkerのタッチ処理を無効にしないと、PCTalker起動中、Windowsの標準タッチメッセージWM_POINTERxxxメッセージを受け取ることができません。</p>
+    <p>この設定値は、タッチ対応アプリがアクティブ時のみ有効です。</p>
+    <h2>引数</h2>
+    <code>aEnable</code>
+    <p>TRUE=PCTakerのタッチ処理を有効にします。<br>
+        FALSE=PCTakerのタッチ処理を無効にします。(デフォルト)
+    </p>
+</body>
+
+</html>

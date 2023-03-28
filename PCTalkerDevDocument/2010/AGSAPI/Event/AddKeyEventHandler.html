@@ -1,0 +1,98 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>AddKeyEventHandler</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>AddKeyEventHandler</h1>
+  <p>キーイベントハンドラの登録</p>
+  <pre><code>
+HAGSHOOK <span class="fnname">AddKeyEventHandler</span>(
+      AGSKeyEventHandler aEventHandler
+)</code></pre>
+  <p>AGSのキーイベントが発生した時に呼ばれる、コールバック関数を登録します。</p>
+  <p class="note">※コールバック関数は登録した順に呼び出されます。呼び出し順を変更するには<a
+      href="ChangeEventHandlerLevel.html">ChangeEventHandlerLevel</a>関数をコールします</p>
+  <h2>引 数</h2>
+  <code>aEventHandler</code>
+  <p>コールバック関数 </p>
+  <h2>戻り値</h2>
+  <code>HAGSHOOK</code>
+  <p>フックハンドル。フックハンドル。イベントハンドラの登録解除(<a href="RemoveKeyEventHandler.html">RemoveKeyEventHandler</a>)に必要。</p>
+  <p class="otherinf">参照</p>
+  <p><a href="DefEvent.html">DefEvent</a><br>
+    <a href="RemoveKeyEventHandler.html">RemoveKeyEventHandler</a></p>
+  <br>
+  <hr>
+  <h1>イベントコールバック関数 </h1>
+  <pre><code>
+  AGSEVENT_RET (CALLBACK *<span class="fnname">AGSKeyEventHandler</span>)( 
+    AGSEVENTTYPE aEventType,
+    INT_PTR aKeyInfo 
+  )</code></pre>
+  <h2>引 数</h2>
+  <code>aEventType</code>
+  <p>発生したイベントの種類が渡されます</p>
+  <p>イベントの種類</p>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTTYPE_KEYDOWN_L</td>
+      <td>キー押下発生(キーフック)</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTTYPE_KEYUP_L</td>
+      <td>キー押上発生(キーフック)</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTTYPE_KEYDOWN_MSG</td>
+      <td>キー押下発生(WM_KEYDOWN)</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTTYPE_KEYUP_MSG</td>
+      <td>キー押上発生(WM_KEYUP)</td>
+    </tr>
+  </table>
+  <code>aKeyInfo</code>
+  <p>キー情報が渡されます</p>
+  <pre><code>
+    typedef struct{
+        HWND hWnd;		//	ウインドウハンドル
+        UINT keycod;		// キーコード
+        WORD nRepeat;		// リピート
+        LPARRAM state;	 // シフト状態
+    }*LPAGSKEYEVENT_INFO;</code></pre>
+  <h2>戻り値</strong></h2>
+
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>以降の処理を中断する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_AGSNEXT</td>
+      <td>以降の処理を続行する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_APIPROC</td>
+      <td>AGS処理を中断する。次のコールバック関数がある場合はコールし、AGS処理は次のコールバック関数に任せる</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_STOPNEXTHOOK</td>
+      <td>次のコールバック関数をパスする。AGS処理は行う</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>前のコールバック関数の戻り値を採用する</td>
+    </tr>
+  </table>
+  <p>※キーフックイベントの場合、戻り値に<strong>AGSEVENTRET_STOP</strong>を返すと、アプリケーションのキー処理が実行されない。<br>
+    アプリケーションのキー操作を妨げないためには、<strong>AGSEVENTRET_APIPROC</strong>、または<strong>AGSEVENTRET_AGSNEXT</strong>を返す必要がある。</span>
+  </p>
+
+</body>
+
+</html>

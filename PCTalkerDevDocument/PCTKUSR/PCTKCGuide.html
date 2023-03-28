@@ -1,0 +1,62 @@
+﻿<html>
+
+<head>
+  <title>PCTKCGuide</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1><a name="PCTKCGuide">PCTKCGuide</a></h1>
+    <p>文字列を１文字読みで読み上げ</p>
+    <pre><code>
+void <span class="fnname">PCTKCGuide</span>( 
+  LPCTSTR str,
+  int mode 
+);
+</code></pre>
+    <h2>引数</h2>
+    <code>str</code>
+    <p>読み上げる文字列</p>
+    <code>mode</code>
+    <p>LOWORD(mode) 読み方１。次の値を設定することができます。</p>
+    <div class="enumdef">
+      <table>
+        <tr>
+          <td>PKDG_SYSTEM</td>
+          <td>システム規定値</td>
+        </tr>
+        <tr>
+          <td>PKDG_BEEP</td>
+          <td>ビープ</td>
+        </tr>
+        <tr>
+          <td>PKDG_ON</td>
+          <td>音読み</td>
+        </tr>
+        <tr>
+          <td>PKDG_ONKUN</td>
+          <td>音訓読み</td>
+        </tr>
+        <tr>
+          <td>PKDG_SYOUSAI1</td>
+          <td>詳細読み1</td>
+        </tr>
+        <tr>
+          <td>PKDG_SYOUSAI2</td>
+          <td>詳細読み2</td>
+        </tr>
+        <tr>
+          <td>PKDG_SYOUSAI3</td>
+          <td>詳細読み3</td>
+        </tr>
+      </table>
+    </div>
+    <p>HIWORD(mode)読み方２。<br>0ならカーソル移動時の読み方、1なら日本語変換時の読み方で読み上げます。なお、読み方１がPKDG_SYSTEM以外であれば、無効となります。
+    <h2>解説</h2>
+    <p>strで指定された文字列を、指定された読み方の１文字読みで読み上げます。</p>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>WtmGetPointText</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.style1 {	color: #FF0000;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+<body>
+<p class="title">指定座標位置の文字取得　WtmGetPointText</p>
+<p><strong>BOOL WtmGetPointText( (HWND </strong><em>hwndRoot</em><strong>, HWND </strong><em>hwndTarget</em><strong>, POINT </strong><em>ptCaret</em><strong>,AGSWGPT_REQUEST </strong><em>request</em><strong>,  wchar_t* </strong><em>wcTextBuf</em><strong>, size_t* </strong><em>nMoji</em><strong> );</strong></p>
+<p>リストなどの選択されている文字列を取得します。</p>
+<p>この関数をコールする前に、<a href="WtmProcessMonitor.html">WtmProcessMonitor</a>、または<a href="WtmWindowMonitor.html">WtmWindowMonitor</a>で描画の監視を開始しておく必要があります。</p>
+<p class="subtitle">&nbsp;</p>
+<p class="subtitle">引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>hwndRoot</em><strong></strong><strong></strong></td>
+    <td width="536" valign="top">描画監視中のウインドウ</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>hwndTarget</em><strong></strong></td>
+    <td valign="top"><p>ターゲットウインドウ<br>
+        <span class="style1">※このウインドウはhwndRoot内のウインドウでなければなりません</span></p>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>ptCaret</em><strong></strong></td>
+    <td valign="top">取得する文字の座標位置</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>request</em><strong></strong></td>
+    <td valign="top"><p>取得方法</p>
+      <table width="554" border="1">
+        <tr>
+          <td width="182"><strong>AGSWGPT_LEFT</strong></td>
+          <td width="362">座標の左側の文字を取得</td>
+        </tr>
+        <tr>
+          <td><strong>AGSWGPT_RIGHT</strong></td>
+          <td>座標の右側の文字を取得</td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>wcTextBuf</em><strong></strong></td>
+    <td valign="top">取得文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>nMoji</em><strong></strong></td>
+    <td valign="top"><p>取得した文字数</p>
+    <p class="style1">※wcTextBufのサイズ(最大文字数)で初期化しておく必要があります。</p></td>
+  </tr>
+</table>
+<p><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead">BOOL</td>
+    <td width="533"><table>
+        <tr>
+          <td width="304"><strong>TRUE</strong>=成功</td>
+        <tr>
+          <td><strong>FALSE</strong>=失敗</td>
+        </tr>
+    </table></td>
+  </tr>
+</table>
+<p class="subtitle">&nbsp;</p>
+</body>
+</html>

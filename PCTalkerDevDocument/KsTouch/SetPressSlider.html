@@ -1,0 +1,71 @@
+﻿<html>
+
+<head>
+    <title>SetPressSlider</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch::SetPressSlider</h1>
+    <p>プレススライダーコントロールのモード設定</p>
+    <pre><code>
+void <span class="fnname">CKSTouch:SetPressSlider</span>(
+    DWORD aRegistId,
+    PRESSSLIDER_MODE aMode
+)</code></pre>
+    <p>プレススライダーコントロールのモードを切り替えます。</p>
+    <h2>引数</h2>
+    <code>aRegistId</code>
+    <p>タッチID。RegistNotifyXXX関数で返された値。</p>
+    <code>aMode</code>
+    <p>プレススライダーモード
+    <table class="enumdef">
+        <tr>
+            <td>PRESSSLIDER_OFF</td>
+            <td>無効.コントロールを使用しない</td>
+        </tr>
+        <tr>
+            <td>PRESSSLIDER_VERT</td>
+            <td>縦方向に切り替えるコントロール</td>
+        </tr>
+        <tr>
+            <td>PRESSSLIDER_HORI</td>
+            <td>横方向に切り替えるコントロール</td>
+        </tr>
+        <tr>
+            <td>PRESSSLIDER_VERTHORI</td>
+            <td>縦 または 横方向に切り替えるコントロール</td>
+        </tr>
+    </table>
+
+    <code>WakeUpTime</code>
+    <p>プレススライダーを起動する時間(mmsec)</p>
+    <hr>
+    <h2>プレススライダーコントロールとは</h2>
+    <p>指を押したまま上下に一定距離スライドさせると、スイッチが切り替わるコントロール。</p>
+    <h3>プレススライダーのジェスチャ通知</h3>
+    <p>プレススライダーのメッセージは<strong>TOUCHPRESSSLIDER_NOTIFYINFO</strong>の<strong>bPressSliderAct</strong>が<strong>TRUE</strong>にセットされ、action値に以下の値がセットされる。
+    </p>
+    <table class="enumdef">
+        <tr>
+            <th class="rawtitle" colspan="2">TOUCHACT_NOTIFYINFO::Actionの値</td>
+        </tr>
+        <tr>
+            <td>TA_ACT_TAPANDHOLD</td>
+            <td>プレススライダーの起動</td>
+        </tr>
+        <tr>
+            <td>TA_ACT_PRESSSLIDERCHANGE</td>
+            <td>スイッチが切り替えられた</td>
+        </tr>
+        <tr>
+            <td>TA_ACT_HOVERUP</td>
+            <td>プレススライダーの終了</td>
+        </tr>
+
+    </table>
+
+</body>
+
+</html>

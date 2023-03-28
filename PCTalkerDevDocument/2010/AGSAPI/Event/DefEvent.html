@@ -1,0 +1,51 @@
+﻿<html>
+
+<head>
+  <title>DefEvent</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="../agsapi.css">
+</head>
+
+<body class="function">
+  <h1>DefEvent</h1>
+  <p>AGS標準のイベント処理</p>
+  <pre><code>
+AGSEVENT_RET WINAPI <span class="fnname">DefEvent</span>(
+      AGSEVENTTYPE aEventType,
+      INT_PTR aParam
+)</code></pre>
+  <p>AGSの標準のイベント処理関数です。</p>
+  <p class="note">
+    ※この関数は、標準ではAGSが自動的にコールします。各イベントのコールバック関数で戻り値を<code>AGSEVENTRET_AGSNEXT</code>以外(他のコールバックの処理をさせない)に指定し、かつAGSの処理をおこなう場合のみコールします。
+  </p>
+  <h2>引数</h2>
+  <code>aEventType</code>
+  <p>イベントタイプ。イベントコールバックで渡されたイベントタイプを指定します。</p>
+  <code>aParam</code>
+  <p>イベントパラメータ。イベントコールバックで渡されたパラメータを指定します。</p>
+  <h2>戻り値</h2>
+  <table class="enumdef">
+    <tr>
+      <td>AGSEVENTRET_STOP</td>
+      <td>以降の処理を中断する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_AGSNEXT</td>
+      <td>以降の処理を続行する</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_APIPROC</td>
+      <td>AGS処理を中断する。次のコールバック関数がある場合はコールし、AGS処理は次のコールバック関数に任せる</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_STOPNEXTHOOK</td>
+      <td>次のコールバック関数をパスする。AGS処理は行う</td>
+    </tr>
+    <tr>
+      <td>AGSEVENTRET_PREVRESULT</td>
+      <td>前のコールバック関数の戻り値を採用する</td>
+    </tr>
+  </table>
+</body>
+
+</html>

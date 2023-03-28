@@ -1,0 +1,64 @@
+﻿<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+	<title>EXCELアタッチ</title>
+	<meta charset=utf-8">
+	<link rel="stylesheet" href="../OfficeAide.css">
+</head>
+
+<body class="function">
+	<h1>EXCELにアタッチするサンプル</h1>
+	<pre><code>
+//-----------------------------------------------------------------------------	
+//          EXCELにアタッチする
+//
+//　引　数 : aExcelApp　  EXCELアプリケーションラップクラス
+//　　　　   aExcelEvents EXCELイベントラップクラス
+//
+//	戻り値 : TRUE=成功 FALSE=失敗
+//-----------------------------------------------------------------------------	
+BOOL AttachExcel( CExcelApp&amp; aExcelApp, CExcelEvents&amp; aExcelEvents )
+{
+	CLSID clsid;
+	//	EXCELがインストールされているかどうか調べる
+	if (CLSIDFromProgID(OLESTR("Excel.Application"), &clsid) != NOERROR){
+		return(FALSE);
+	}
+
+	BOOL bSuccess = FALSE;
+	LPUNKNOWN lpUnk;
+	LPDISPATCH lpDispatch;
+
+	try{
+		//	アクティブなEXCELアプリケーションを取得する
+		if(::GetActiveObject(clsid, NULL, &lpUnk)!=NOERROR)
+			return	( FALSE );
+			
+		HRESULT hr =lpUnk->QueryInterface(IID_IDispatch,(LPVOID*)&lpDispatch);
+		lpUnk->Release();
+		if (hr==NOERROR){
+			//すでにExcelが起動されていればアタッチする
+			aExcelApp.AttachDispatch(lpDispatch,TRUE);
+
+			// CExcelWorksheet wsheet;
+			// wsheet.AttachDispatch( aExcelApp.get_ActiveSheet() );
+			// CString strSheetName = aExcelApp.get_Name();
+			// EXCELのイベントにアドバイズする
+			if(aExcelEvents.Advise( aExcelApp.m_lpDispatch ) == S_OK ){
+				bSuccess = TRUE;
+			}
+			else{
+				aExcelApp.ReleaseDispatch(); 
+			}
+		}
+	}
+	catch( ... ){
+		bSuccess = FALSE;
+	}
+	reuturn ( bSuccess );
+}</code></pre>
+
+</body>
+
+</html>

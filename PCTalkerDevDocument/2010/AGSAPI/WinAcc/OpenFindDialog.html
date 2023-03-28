@@ -1,0 +1,46 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>OpenFindDialog</title>
+<link href="../../2010.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p class="title">検索ダイアログの表示　OpenFindDialog</p>
+<p><strong>BOOL OpenFindDialog( LPCWSTR </strong><em>aTitle</em><strong>,LPCWSTR </strong><em>aInitString</em><strong>,BOOL* </strong><em>aMatchPerfect</em><strong>,BSTR* </strong><em>aFindString</em><strong> )<br>
+</strong>検索ダイアログを表示します。</p>
+<p>引 数</p>
+<table width="662" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" class="tblhead"><em>aTitle</em><strong></strong></td>
+    <td valign="top">ダイアログタイトル文字列</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aInitString</em><strong></strong></td>
+    <td valign="top">検索文字列に表示する初期値</td>
+  </tr>
+  <tr>
+    <td valign="top" class="tblhead"><em>aMatchPerfect</em><strong></strong></td>
+    <td valign="top"><p>完全一致で検索するかどうか(初期値兼用)</p>
+      <strong>TRUE</strong>=完全一致<br>
+    <strong>FALSE</strong>=完全一致でない</td>
+  </tr>
+  <tr>
+    <td width="126" valign="top" class="tblhead"><em>aFindString</em><strong></strong></td>
+    <td width="536" valign="top"><p>ユーザーが入力した文字列</p>
+    </td>
+  </tr>
+</table>
+<p><span class="subtitle">戻り値</span></p>
+<table width="665" border="1" cellspacing="0" cellpadding="1">
+  <tr>
+    <td width="122" valign="top" class="tblhead"><strong>BOOL</strong></td>
+    <td width="533"><strong>TRUE</strong>=検索ダイアログでOKボタンが押された<br>
+	  <strong>FALSE</strong>=検索をキャンセルされた</td>
+  </tr>
+</table>
+<p class="subtitle">&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>

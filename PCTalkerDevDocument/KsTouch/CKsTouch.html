@@ -1,0 +1,171 @@
+﻿<html>
+
+<head>
+    <title>CKsTouch</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch</h1>
+    <p>タッチ対応クラス</p>
+    <div class="otherinf">
+        <table>
+            <tr>
+                <th>ヘッダ</th>
+                <td>KsTouch.h</td>
+            </tr>
+            <tr>
+                <th>ライブラリ</th>
+                <td>KsTouch32.lib/KsTouch64.lib<br>KsTouch32d.lib/KsTouch64d.lib</td>
+            </tr>
+            <tr>
+                <th>DLL</th>
+                <td>KsTouch32.dll/KsTouch64.dll</td>
+            </tr>
+            <tr>
+                <th>DLLパス</th>
+                <td>\Program Files\Common\Ksd または カレント</td>
+            </tr>
+        </table>
+    </div>
+    <p></p>
+    <table class="enumdef">
+        <tr>
+            <th class="rawtitle" colspan="2">メンバ</th>
+        </tr>
+        <tr>
+            <td><a href="Load.html">Load</a></td>
+            <td>タッチライブラリのロード</td>
+        </tr>
+        <tr>
+            <td><a href="RegistNotifyWnd.html">RegistNotifyWnd</a></td>
+            <td>タッチジェスチャ通知ウインドウの登録</td>
+        </tr>
+        <tr>
+            <td><a href="UnregistNotify.html">UnregistNotify</td>
+            <td>タッチジェスチャ通知の解除</td>
+        </tr>
+        <tr>
+            <td><a href="TranslatePointerMessage.html">TranslatePointerMessage</a></td>
+            <td>タッチメッセージ(WM_POINTERxxx)をジェスチャーに変換し、通知</td>
+        </tr>
+        <tr>
+            <td><a href="EnablePCTalkerTouch.html">EnablePCTalkerTouch</a></td>
+            <td>PCTalkerのタッチ処理を有効/無効に切替</td>
+        </tr>
+        <tr>
+            <td><a href="IsEnablePCTalkerTouch.html">IsEnablePCTalkerTouch</a></td>
+            <td>PCTalkerのタッチ処理が有効か無効かを取得</td>
+        </tr>
+        <tr>
+            <td><a href="SetDisableAction.html">SetDisableAction</a></td>
+            <td>無効なジェスチャを設定</td>
+        </tr>
+        <tr>
+            <td><a href="GetDisableAction.html">GetDisableAction</a></td>
+            <td>無効なジェスチャを取得</td>
+        </tr>
+        <tr>
+            <td><a href="SetTouchRect.html">SetTouchRect</a></td>
+            <td>タッチ検出矩形の設定</td>
+        </tr>
+        <tr>
+            <td><a href="PtInRect.html">PtInRect</a></td>
+            <td>指定座標が検出矩形内かどうか</td>
+        </tr>
+        <tr>
+            <td><a href="GetDownCount.html">GetDownCount</a></td>
+            <td>押されている指の本数取得</td>
+        </tr>
+        <tr>
+            <td><a href="SetTouchSettings.html">SetTouchSettings</a></td>
+            <td>全てのタッチ感度の設定</td>
+        </tr>
+        <tr>
+            <td><a href="SetProcTouchSettings.html">SetProcTouchSettings</a></td>
+            <td>プロセスのタッチ感度の設定</td>
+        </tr>
+        <tr>
+            <td><a href="GetTouchSettings.html">GetTouchSettings</a></td>
+            <td>タッチ感度の取得</td>
+        </tr>
+        <tr>
+            <td><a href="SetPinchRange.html">SetPinchRange</a></td>
+            <td>ピンチアクションの有効伸縮率設定</td>
+        </tr>
+        <tr>
+            <td><a href="GetPinchRange.html">GetPinchRange</a></td>
+            <td>ピンチアクションの有効伸縮率取得</td>
+        </tr>
+        <tr>
+            <td><a href="SetPressSlider.html">SetPressSlider</a></td>
+            <td>プレススライダーコントロールのモード設定</td>
+        </tr>
+        <tr>
+            <td><a href="GetPressSlider.html">GetPressSlider</a></td>
+            <td>プレススライダーコントロールモード取得</td>
+        </tr>
+    </table>
+    <h2>サンプル</h2>
+    <pre><code>
+#include "stdafx.h"
+#include "KsTouch.h"
+
+CKsTouch mTouchMgr; //  タッチクラス
+DWORD    mTouchId;  //  タッチID
+
+BEGIN_MESSAGE_MAP(CTouchMsgWnd, CWnd)
+	ON_MESSAGE( WM_USER+1,OnTouchActNotify )
+END_MESSAGE_MAP()
+
+//--------------------------------------------------------------
+//      タッチ処理の初期化
+//--------------------------------------------------------------
+void CTestWnd::InitTouch()
+{
+    //  タッチライブラリのロード
+    mTouchMgr.Load();
+    //  タッチ通知ウインドウの登録(※ピンチアクションは検出しない)
+    mTouchId = mTouchMgr.RegisterNotifyWnd( m_hWnd,WM_USER+1,TA_ACT_SCALE,NULL );
+}
+//--------------------------------------------------------------
+//      WindowProc
+//--------------------------------------------------------------
+LRESULT CTestWnd::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
+{
+    //  WM_POINTERxxであれば、タッチ変換処理をコールする
+    if( message >= WM_NCPOINTERUPDATE && message <= WM_POINTERHWHEEL ){
+        if(mTouchMgr.TranslatePointerMessage( mTouchId,message,wParam,lParam ))
+            return  ( TRUE );
+    }
+    return CWnd::WindowProc(message, wParam, lParam);
+}
+//--------------------------------------------------------------
+//      タッチジェスチャ処理
+//
+//  引　数 : wParam   LPTOUCHACT_NOTIFYINFO
+//          lParam   登録ID
+//      
+//  戻り値 : TRUE=PCTalkerにタッチ処理させる FALSE=させない
+//--------------------------------------------------------------
+LRESULT CTestWnd::OnTouchActNotify( WPARAM wParam,LPARAM lParam )
+{
+    LPTOUCHACT_NOTIFYINFO pNotifyInf = (LPTOUCHACT_NOTIFYINFO)wParam;
+
+    if( lParam == mTouchId ){ 
+        switch( pNotifyInf->action ){
+        case    TA_ACT_TAP  :
+            //  1本指でダブルタップされたらPCTalkerに処理させない
+            if( pNotifyInf->nFingerCount == 1 && pNotifyInf->nCount == 2 ){
+                
+                return  ( FALSE );
+            }
+        break;
+    }
+    return  ( TRUE );
+}
+</code></pre>
+</body>
+
+</html>

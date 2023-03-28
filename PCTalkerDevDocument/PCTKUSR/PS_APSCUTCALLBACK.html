@@ -1,0 +1,83 @@
+﻿<html>
+
+<head>
+  <title>PC-Talkerショートカットコマンドコールバック関数の登録・取得</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <h1>PC-Talkerショートカットコマンドコールバック関数の登録・取得</h1>
+  <p>PC-Talkerにコールバック関数を登録すると、ショートカットコマンド実行直前にコールバック関数がコールされます。コールバック関数を登録することにより、アプリケーションからコマンド実行の制御を行うことができます。</p>
+  <p class="note">注:コールバック関数は、登録したプロセス（アプリケーション）のコマンド実行時のみ有効です。</p>
+  <hr>
+  <div class="function">
+    <h2>ショートカットコマンドコールバック関数の登録</h2>
+    <p>コールバック関数を登録するには、PCTKUSR.DLLの<span class="fnname">PCTKSetStatus</span>関数をコールします。</p>
+    <pre><code>
+///---------------------------------------------------
+/// PCTalkerショートカットコマンド コールバック関数の登録
+///---------------------------------------------------
+void PCTKRegistCommandCallback
+{
+  .
+  .
+ <span class="fnname">PCTKSetStatus</span>( <b>PS_APSCUTCALLBACK</b>,
+  CommandCallBack, // コールバック関数のアドレス
+  nullptr );
+  .
+  .
+}
+///-------------------------
+/// コマンドコールバック関数
+///-------------------------
+BOOL CALLBACK <span class="fnname">CommandCallBack</span>( LPCTSTR commandname )
+{
+  // 1行読みの禁止
+  if( !tcscmp(commandname, PCTKCMD_READCURLINE)){
+    return  TRUE;
+  }
+  return FALSE;
+}
+</code></pre>
+    <p>引数1に<code>PS_APSCUTCALLBACK</code>を指定し、引数2には、コールバック関数のアドレスを指定します。引数3は、使用しないので<code>nullptr</code>を指定します。
+    </p>
+    <p>戻り値の<code>DWORD</code>型は、以前に設定されていたコールバック関数のアドレスが返されます。</p>
+    <p>以前にコールバック関数が設定されていなければ、<code>nullptr</code>が返されます。
+  </div>
+  <hr>
+  <div class="function">
+    <h2>コールバック関数の型</h2>
+    <p>コールバック関数は、以下のように宣言してください。</p>
+    <pre><code>
+BOOL CALLBACK <span class="fnname">APSCutCallBack</span>( 
+  LPCTSTR cmdstr 
+);</code></pre>
+    <h3>引数</h3>
+    <p><code>cmdstr</code></p>
+    <p>実行されるショートカットコマンドのコマンド文字列アドレス。詳細は、<a href="CMDSTRING.html">定義済みのコマンド文字列表</a>を参照してください。</p>
+    <h3>戻り値</h3>
+    <p><code>FALSE</code>を返すと、PC-Talkerはコマンドを実行し、<code>TRUE</code>を返すとコマンドを実行しません。</p>
+  </div>
+  <hr>
+  <div class="function">
+    <h2>読み上げコールバック関数の取得</h2>
+    <p>PCTKUSR.DLLの<span class="fnname">PCTKGetStatus</span>関数をコールすると、現在、登録されているコールバック関数アドレスを取得することができます。</p>
+    <p>引数 <code>item</code> に
+      <code>PS_APSCUTCALLBACK</code>を指定し、<code>param1</code>と<code>param2</code>は、使用しないので<code>nullptr</code>を指定します。
+    </p>
+    <p>戻り値の<strong>DWORD</strong>型は、現在設定されているコールバック関数のアドレスが返されます。</p>
+    <pre><code>
+      .
+      .
+      /// PCTalkerコマンドコールバック関数の取得
+      DWORD OldFunc;
+
+      OldFunc = <span class="fnname">PCTKGetStatus</span>( PS_APSCUTCALLBACK,nullptr,nullptr );
+      .
+      .
+</code></pre>
+  </div>
+</body>
+
+</html>

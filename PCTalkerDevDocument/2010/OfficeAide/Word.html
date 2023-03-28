@@ -1,0 +1,110 @@
+﻿<html>
+
+<head>
+  <title>WORD支援アドイン</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="OfficeAide.css">
+</head>
+
+<body class="function">
+  <h1>WORD支援アドイン OwWord</h1>
+  <h3>ファイル構成</h3>
+  <table class="enumdef">
+    <tr>
+      <td>defファイル</td>
+      <td>OwWord.def</td>
+      <td>xxx\Program Files\KSD\OfficeWorks\DefFiles</td>
+    </tr>
+    <tr>
+      <td>アドインdll</strong></td>
+      <td>OwWord.dll</td>
+      <td>xxx\Program Files\KSD\OfficeWorks\ExFiles </td>
+    </tr>
+  </table>
+  <h3>WORDのDOMへのアクセス</h3>
+  <p> WINWORD.EXEのタイプライブラリからMFCラッパークラスを作成する 。 </p>
+  <p>参照:<a href="rapperclass.html">ラッパークラスの作成方法</a>　<a href="sample/WordAttach.html">WORDにアタッチするサンプルプロジェクト</a>、<a
+      href="sample/excelatach.html">EXCELにアタッチするサンプル</a></p>
+  <p>タイプライブラリ Microsoft Word xx.x Object Library&lt;x.x&gt;</p>
+  <table class="enumdef">
+    <tr>
+      <td>_Application</td>
+      <td>WORDアプリケーションオブジェクト</td>
+    </tr>
+    <tr>
+      <td>_Document</td>
+      <td>ドキュメントオブジェクト</td>
+    </tr>
+    <tr>
+      <td>_Range</td>
+      <td>Rangeオブジェクト</td>
+    </tr>
+  </table>
+  <h3>WORDイベント処理</h3>
+  <p>WORDのイベント発生時に音声出力や、音声出力のための制御をおこなう。</p>
+  <p>イベントはOLEViewerを使用して、IID、イベントID等を確認しイベントクラスを作成する。</p>
+  <p>参照:<a href="EventClass.html">イベントクラスの作成</a></p>
+  <table class="enumdef">
+    <tr>
+      <th colspan="2" class="rawheader">イベント</th>
+      <th class="rawheader">処理</th>
+    </tr>
+    <tr>
+      <td>New</td>
+      <td>新規作成</td>
+      <td>&quot;新規&quot;音声出力</td>
+    </tr>
+    <tr>
+      <td>Open</td>
+      <td>文書を開く</td>
+      <td>&quot;ロード 終わり&quot;音声出力</td>
+    </tr>
+    <tr>
+      <td>Close</td>
+      <td>文書を閉じる</td>
+      <td>&quot;クローズ&quot;音声出力
+    </tr>
+    <tr>
+      <td>DocumentChange</td>
+      <td>編集文書の変更</td>
+      <td>文書名+&quot;アクティブ&quot;音声出力</td>
+    </tr>
+    <tr>
+      <td>Quit</td>
+      <td>WORDの終了</td>
+      <td>&quot;ワード 終わり&quot;音声出力<br>
+        終了処理</td>
+    </tr>
+  </table>
+  <h3>アドイン独自機能</h3>
+  <p>音声出力やPCTalkerの設定取得等</p>
+  <p><a href="../AGSAPI/AGSAPI.html">AGS API</a>を使用する </p>
+  <h3 class="otherinf">参考資料</h3>
+  <h5>旧バージョンマクロ</h5>
+  <p>新しい機能を追加する場合や、インターフェイスがどのような役割を果たすかなど、まずは、VBAマクロでテストして正しく動作するかどうかチェックしてみるほうがはやい。</p>
+  <table class="enumdef">
+    </tr>
+    <tr>
+      <td><a href="sample/WORD_2520VBA/AutoExec.bas">AutoExec.bas</a></td>
+      <td>WORD起動時のキーイベントのセットと読みメニューの追加</td>
+    </tr>
+    <tr>
+      <td><a href="sample/WORD_2520VBA/Class1.cls">Class1.cls</a></td>
+      <td>イベント処理とPCTalkerコマンドコールバック処理</td>
+    </tr>
+    <tr>
+      <td><a href="sample/WORD_2520VBA/ThisDocument.cls">ThisDocument.cls</a></td>
+      <td>イベント処理(開く、閉じる、新規作成)</td>
+    </tr>
+    <tr>
+      <td><a href="sample/WORD_2520VBA/WordTalker.bas">WordTalker.bas</a></td>
+      <td>メイン部品</td>
+    </tr>
+    <tr>
+      <td><a href="sample/WORD_2520VBA/PCTK.bas">PCTK.bas</a></td>
+      <td>音声出力等、細かい部品ソース</td>
+    </tr>
+  </table>
+</body>
+
+</html>

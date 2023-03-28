@@ -1,0 +1,32 @@
+﻿<html>
+
+<head>
+  <title>PCTKPRead</title>
+  <meta charset=utf-8">
+  <link rel="stylesheet" href="pctkusr.css">
+</head>
+
+<body>
+  <div class="function">
+    <h1><a name="PCTKPRead">PCTKPRead</a></h1>
+    <p>文字列の読み上げ(優先レベル・構文解析設定)</p>
+    <pre><code>
+void <span class="fnname">PCTKPRead</span>( 
+  LPCTSTR str, 
+  int priority,
+  BOOL analyze
+)
+</code></pre>
+    <p><strong>引数</strong></p>
+    <code>str</code>
+    <p>読み上げる文字列</p>
+    <code>priority</code>
+    <p>優先レベル。1～5の値を設定することができます。数字が大きくなるほど、優先順位が高くなります。通常は、4を指定してください。</p>
+    <code>analyze</code>
+    <p>構文解析。TRUEを設定するとPC-Talker独自の構文解析を行い、FALSEを設定すると音声Iエンジンに直接文字列を読み上げさせます。</p>
+    <h2>解説</h2>
+    <p><code>str</code>で指定された文字列を、<code>priority</code>、<code>analyze</code>で設定された読み方で読み上げます。</p>
+  </div>
+</body>
+
+</html>

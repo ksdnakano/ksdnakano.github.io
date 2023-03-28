@@ -1,0 +1,35 @@
+﻿<html>
+
+<head>
+    <title>TranslatePointerMessage</title>
+    <meta charset=utf-8">
+    <link rel="stylesheet" href="../PCTalker.css">
+</head>
+
+<body class="function">
+    <h1>CKSTouch::TranslatePointerMessage</h1>
+    <p>タッチメッセージ(WM_POINTERxxx)をジェスチャーに変換し、通知</p>
+    <pre><code>
+BOOL <span class="fnname">CKSTouch::TranslatePointerMessage</span>(
+    DWORD aRegistId,
+    UINT uMessage,
+    WPARAM wParam,
+    LPARAM lParam
+)</code></pre>
+    <p>タッチメッセージ(WM_POINTERXXXX)を解析し、ジェスチャをウインドウにSendMessageで通知します。</p>
+    <p>WM_POINTERを受け取ったウインドウは、この関数にメッセージ情報を渡すことにより、適切なタッチジェスチャ通知を受け取ることができます。</p>
+    <h2>引数</h2>
+    <code>aRegistId</code>
+    <p>タッチID。RegistNotifyXXX関数で返された値。</p>
+    <code>uMessage</code>
+    <p>WM_POINTERXXXメッセージ</p>
+    <code>wParam</code>
+    <p>WPARAM値</p>
+    <code>lParam</code>
+    <p>LPARAM値</p>
+    <h2>戻り値</h2>
+    <p>TRUE=メッセージを処理した。 <br />
+        FALSE=メッセージを処理しなかった。</p>
+</body>
+
+</html>
